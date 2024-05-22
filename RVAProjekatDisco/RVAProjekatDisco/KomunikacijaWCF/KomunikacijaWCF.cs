@@ -31,7 +31,6 @@ namespace RVAProjekatDisco.KomunikacijaWCF
 
             logovanjeServisProxy = logovanjeServisFactory.CreateChannel();
             korisnikServisProxy = korisnikServisFactory.CreateChannel();
-
         }
 
         public void PrijaviSe(KorisnikZaLogovanje korisnik)

@@ -12,6 +12,7 @@ namespace Common.Dodatno
     {
         [DataMember]
         public string Poruka { get; set; }
+
         public Izuzetak() { }
 
         public Izuzetak(string poruka)

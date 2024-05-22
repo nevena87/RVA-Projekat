@@ -16,7 +16,7 @@ namespace Server.PristupBaziPodataka
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<DiscoContext, Konfiguracija>());
             var adapter = (IObjectContextAdapter)this;
             var objectContext = adapter.ObjectContext;
-            objectContext.CommandTimeout = 10 * 60;
+            objectContext.CommandTimeout = 10 * 60;     // 10 minuta
         }
 
         public DbSet<Korisnik> Korisnici { get; set; }

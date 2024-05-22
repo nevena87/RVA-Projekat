@@ -36,7 +36,7 @@ namespace Server.Servisi
 
         public Sesija PrijaviSe(KorisnikZaLogovanje korisnik)
         {
-            Korisnik logovaniKorisnik = DbManager.Instance.GetUserByUsername(korisnik.KorisnickoIme);
+            Korisnik logovaniKorisnik = DbManager.Instance.DobaviKorisnikaPoKorisnickomImenu(korisnik.KorisnickoIme);
             try
             {
                 if (logovaniKorisnik == null || logovaniKorisnik.Lozinka != korisnik.Lozinka)

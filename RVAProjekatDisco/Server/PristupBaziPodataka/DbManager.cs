@@ -15,11 +15,6 @@ namespace Server.PristupBaziPodataka
 
         public DiscoContext discoContext = null;
 
-        private DbManager()
-        {
-            discoContext = new DiscoContext();
-        }
-
         public static DbManager Instance
         {
             get
@@ -32,6 +27,11 @@ namespace Server.PristupBaziPodataka
             }
         }
 
+        private DbManager()
+        {
+            discoContext = new DiscoContext();
+        }
+
         public void SacuvajPromene()
         {
             lock (discoContext)
@@ -40,7 +40,7 @@ namespace Server.PristupBaziPodataka
             }
         }
 
-        public Korisnik GetUserByUsername(string korisnickoIme)
+        public Korisnik DobaviKorisnikaPoKorisnickomImenu(string korisnickoIme)
         {
             lock (discoContext)
             {

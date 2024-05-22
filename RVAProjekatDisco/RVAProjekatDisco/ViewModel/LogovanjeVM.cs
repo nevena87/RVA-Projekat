@@ -21,6 +21,7 @@ namespace RVAProjekatDisco.ViewModel
 
         public KorisnikZaLogovanje KorisnikZaLog { get; set; }
         public ICommand LogovanjeKomanda { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
 
@@ -44,7 +45,6 @@ namespace RVAProjekatDisco.ViewModel
 
             Console.WriteLine("Korisnicko ime: {0} \n Lozinka: {1}", KorisnikZaLog.KorisnickoIme, KorisnikZaLog.Lozinka);
         }
-
 
         public bool CanExecute(object parameter)
         {

@@ -10,14 +10,14 @@ namespace RVAProjekatDisco.Komande
 {
     public class KomandaOtkazi : ICommand
     {
+        ProzorManagingVM ViewModel { get; set; }
+
         public KomandaOtkazi(ProzorManagingVM viewModel)
         {
             ViewModel = viewModel;
         }
 
         public event EventHandler CanExecuteChanged;
-        ProzorManagingVM ViewModel { get; set; }
-
 
         public bool CanExecute(object parameter)
         {

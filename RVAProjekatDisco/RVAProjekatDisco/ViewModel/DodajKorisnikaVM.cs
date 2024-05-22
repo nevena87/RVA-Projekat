@@ -15,7 +15,6 @@ namespace RVAProjekatDisco.ViewModel
     public class DodajKorisnikaVM : ProzorManagingVM
     {
         public Korisnik NoviKorisnik { get; set; }
-
         public ICommand DodajKorisnikaKomanda { get; set; }
         public ICommand OtkaziKomanda { get; set; }
 

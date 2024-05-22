@@ -35,6 +35,7 @@ namespace Server
 
         }
 
+        #region INICIJALNI PODACI
         private static void InicijalniPodaciZaBazu()
         {
             if (!(DbManager.Instance.discoContext.Korisnici.Count() == 0))
@@ -55,5 +56,6 @@ namespace Server
 
             Console.WriteLine("Zavrseno");
         }
+        #endregion
     }
 }

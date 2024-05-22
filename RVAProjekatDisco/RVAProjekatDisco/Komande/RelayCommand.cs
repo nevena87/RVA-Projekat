@@ -10,11 +10,11 @@ namespace RVAProjekatDisco.Komande
 {
     /// MSDN -> Implementation RelayCommand
     /// <summary>
-    /// A command whose sole purpose is to relay its functionality to other objects by invoking delegates. The default return value for the CanExecute method is 'true'.
+    /// A command whose sole purpose is to relay its functionality to other objects by invoking delegates. 
+    /// The default return value for the CanExecute method is 'true'.
     /// </summary>
     public class RelayCommand<T> : ICommand
     {
-
         #region Declarations
 
         readonly Predicate<T> _canExecute;
@@ -28,8 +28,7 @@ namespace RVAProjekatDisco.Komande
         /// Initializes a new instance of the <see cref="RelayCommand&lt;T&gt;"/> class and the command can always be executed.
         /// </summary>
         /// <param name="execute">The execution logic.</param>
-        public RelayCommand(Action<T> execute)
-            : this(execute, null)
+        public RelayCommand(Action<T> execute) : this(execute, null)
         {
         }
 
@@ -55,13 +54,11 @@ namespace RVAProjekatDisco.Komande
         {
             add
             {
-
                 if (_canExecute != null)
                     CommandManager.RequerySuggested += value;
             }
             remove
             {
-
                 if (_canExecute != null)
                     CommandManager.RequerySuggested -= value;
             }
@@ -82,11 +79,11 @@ namespace RVAProjekatDisco.Komande
     }
 
     /// <summary>
-    /// A command whose sole purpose is to relay its functionality to other objects by invoking delegates. The default return value for the CanExecute method is 'true'.
+    /// A command whose sole purpose is to relay its functionality to other objects by invoking delegates.
+    /// The default return value for the CanExecute method is 'true'.
     /// </summary>
     public class RelayCommand : ICommand
     {
-
         #region Declarations
 
         readonly Func<Boolean> _canExecute;
@@ -100,8 +97,7 @@ namespace RVAProjekatDisco.Komande
         /// Initializes a new instance of the <see cref="RelayCommand&lt;T&gt;"/> class and the command can always be executed.
         /// </summary>
         /// <param name="execute">The execution logic.</param>
-        public RelayCommand(Action execute)
-            : this(execute, null)
+        public RelayCommand(Action execute) : this(execute, null)
         {
         }
 
@@ -112,7 +108,6 @@ namespace RVAProjekatDisco.Komande
         /// <param name="canExecute">The execution status logic.</param>
         public RelayCommand(Action execute, Func<Boolean> canExecute)
         {
-
             if (execute == null)
                 throw new ArgumentNullException("execute");
             _execute = execute;
@@ -127,13 +122,11 @@ namespace RVAProjekatDisco.Komande
         {
             add
             {
-
                 if (_canExecute != null)
                     CommandManager.RequerySuggested += value;
             }
             remove
             {
-
                 if (_canExecute != null)
                     CommandManager.RequerySuggested -= value;
             }

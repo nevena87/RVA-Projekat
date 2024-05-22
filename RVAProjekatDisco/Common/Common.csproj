@@ -49,9 +49,20 @@
     <Compile Include="Enumeracije\TipKorisnika.cs" />
     <Compile Include="Interfejsi\IKorisnikServis.cs" />
     <Compile Include="Interfejsi\ILogovanjeServis.cs" />
+    <Compile Include="Model\Factory.cs" />
+    <Compile Include="Enumeracije\FormatZapisa.cs" />
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="Model\KorisnikZaLogovanje.cs" />
+    <Compile Include="Model\Pesma.cs" />
+    <Compile Include="Model\PesmaFactory.cs" />
+    <Compile Include="Model\PesmaFLAC.cs" />
+    <Compile Include="Model\PesmaMP3.cs" />
+    <Compile Include="Model\PesmaOGG.cs" />
+    <Compile Include="Model\PesmaWAV.cs" />
+    <Compile Include="Model\Plejlista.cs" />
     <Compile Include="ObjektiDTO\KorisnikDTO.cs" />
+    <Compile Include="ObjektiDTO\PesmaDTO.cs" />
+    <Compile Include="ObjektiDTO\PlejlistaDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

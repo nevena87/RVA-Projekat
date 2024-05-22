@@ -19,8 +19,6 @@ namespace Server.Servisi
 
         Dictionary<string, SessionInstance> sesije = new Dictionary<string, SessionInstance>();
 
-        private SesijaManager() { }
-
         public static SesijaManager Instance
         {
             get
@@ -32,6 +30,8 @@ namespace Server.Servisi
                 return instance;
             }
         }
+
+        private SesijaManager() { }
 
         public Sesija NapraviNovuSesiju(Korisnik korisnikSesije)
         {
@@ -107,7 +107,7 @@ namespace Server.Servisi
             }
 
             SessionInstance sessionInstance = sesije[sesija.IdSesije];
-            return DbManager.Instance.GetUserByUsername(sessionInstance.KorisnikSesije.KorisnickoIme);
+            return DbManager.Instance.DobaviKorisnikaPoKorisnickomImenu(sessionInstance.KorisnikSesije.KorisnickoIme);
         }
 
         public void AutentifikacijaIzuzetak(Sesija sesija)
