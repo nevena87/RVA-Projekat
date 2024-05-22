@@ -6,6 +6,7 @@ using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,7 @@ namespace RVAProjekatDisco.KomunikacijaWCF
             korisnikServisProxy = korisnikServisFactory.CreateChannel();
         }
 
+        #region Prijava
         public void PrijaviSe(KorisnikZaLogovanje korisnik)
         {
             try
@@ -51,7 +53,9 @@ namespace RVAProjekatDisco.KomunikacijaWCF
             logovanjeServisProxy.OdjaviSe(sesija);
             log.Info("Odjava uspjesno izvrsena!");
         }
+        #endregion Prijava
 
+        #region Korisnik
         public KorisnikDTO VratiInfoKorisnika()
         {
             if (sesija == null)
@@ -78,5 +82,14 @@ namespace RVAProjekatDisco.KomunikacijaWCF
         {
             return logovanjeServisProxy.PostojiUBaziKorisnik(korisnik);
         }
+        #endregion Korisnik
+
+        #region Plejliste
+        // TODO
+        #endregion Plejliste
+
+        #region Pesme
+        // TODO
+        #endregion Pesme
     }
 }

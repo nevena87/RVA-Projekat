@@ -2,19 +2,33 @@ using Common.Enumeracije;
 using Common.ObjektiDTO;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace Common.Model
 {
+	[DataContract]
     public class Plejlista
 	{
-		public string Naziv { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DataMember]
+		public int IdPlejliste { get; set; }
+		[DataMember]
+        public string Naziv { get; set; }
+		[DataMember]
 		public string Autor { get; set; }
+		[DataMember]
 		public List<Pesma> ListaPesama {  get; set; }
 
-		// Konstruktor
+		// Konstruktor(i)
+		public Plejlista() { }
+
 		public Plejlista(PlejlistaDTO pl)
 		{
 			Naziv = pl.Naziv;
@@ -57,5 +71,24 @@ namespace Common.Model
 			// Dodaj novu pesmu u plejlistu
 			ListaPesama.Add(novaPesma);
 		}
-    }
+
+		// Kloniranje plejliste sa svim njenim pesmama
+		public Plejlista KlonirajPlejlistu()
+		{
+			Plejlista kopija = new Plejlista()
+			{
+				IdPlejliste = this.IdPlejliste,
+				Autor = this.Autor,
+				Naziv = this.Naziv				
+			};
+
+			kopija.ListaPesama = new List<Pesma>(this.ListaPesama.Count);
+			foreach (var item in this.ListaPesama)
+			{
+				kopija.ListaPesama.Add(item.KlonirajPesmu());
+			}
+
+			return kopija;
+		}
+	}
 }

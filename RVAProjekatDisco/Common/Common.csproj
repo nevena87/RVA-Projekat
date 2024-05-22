@@ -47,6 +47,7 @@
     <Compile Include="Dodatno\Izuzetak.cs" />
     <Compile Include="Dodatno\Sesija.cs" />
     <Compile Include="Enumeracije\TipKorisnika.cs" />
+    <Compile Include="Interfejsi\IDataServis.cs" />
     <Compile Include="Interfejsi\IKorisnikServis.cs" />
     <Compile Include="Interfejsi\ILogovanjeServis.cs" />
     <Compile Include="Model\Factory.cs" />
