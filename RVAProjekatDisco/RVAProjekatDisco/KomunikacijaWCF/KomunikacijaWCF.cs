@@ -63,7 +63,7 @@ namespace RVAProjekatDisco.KomunikacijaWCF
                 return null;
             }
             log.Info("Informacije o prijavljenom korisnika");
-            return korisnikServisProxy.VratiInfoKorisnika(sesija);
+            return korisnikServisProxy.DobaviInfoKorisnika(sesija);
         }
 
         public void IzmeniInfoKorisnika(KorisnikDTO korisnik)

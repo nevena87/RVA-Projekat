@@ -36,6 +36,7 @@ namespace Server
         }
 
         #region INICIJALNI PODACI
+        // TODO dodati i za Plejliste i za Pesme
         private static void InicijalniPodaciZaBazu()
         {
             if (!(DbManager.Instance.discoContext.Korisnici.Count() == 0))

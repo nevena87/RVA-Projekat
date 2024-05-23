@@ -28,7 +28,7 @@ namespace Common.Model
         [DataMember]
         public int DuzinaSekunde { get; set; }
         [DataMember]
-        protected FormatZapisa Format { get; set; }
+        protected internal FormatZapisa Format { get; set; }
 
         // Da li mi treba konstruktor u apstraktnoj klasi?
         public Pesma() { }

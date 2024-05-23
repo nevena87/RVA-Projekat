@@ -37,7 +37,7 @@ namespace Common.Model
 		}
 
 		// Dodavanje pesme
-		public void DodajPesmu(PesmaDTO pesma)
+		public Pesma DodajPesmu(Pesma pesma)
 		{
 			// Napravi fabriku
 			Factory fabrika = new PesmaFactory();
@@ -70,6 +70,7 @@ namespace Common.Model
 
 			// Dodaj novu pesmu u plejlistu
 			ListaPesama.Add(novaPesma);
+			return novaPesma;
 		}
 
 		// Kloniranje plejliste sa svim njenim pesmama
@@ -79,7 +80,7 @@ namespace Common.Model
 			{
 				IdPlejliste = this.IdPlejliste,
 				Autor = this.Autor,
-				Naziv = this.Naziv				
+				Naziv = this.Naziv + "_kopija"			
 			};
 
 			kopija.ListaPesama = new List<Pesma>(this.ListaPesama.Count);

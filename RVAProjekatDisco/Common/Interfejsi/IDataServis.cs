@@ -30,7 +30,7 @@ namespace Common.Interfejsi
 
         // --- Pesme ---
         [OperationContract]
-        Pesma DodajPesmu(Sesija sesija, PesmaDTO pesma);
+        Pesma DodajPesmu(Sesija sesija, Pesma pesma);
 
         [OperationContract]
         Pesma DobaviPesmu(Sesija sesija, int idPesme);

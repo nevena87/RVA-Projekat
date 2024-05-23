@@ -15,7 +15,7 @@ namespace Common.Interfejsi
     {
         [OperationContract]
         [FaultContract(typeof(Izuzetak))]
-        KorisnikDTO VratiInfoKorisnika(Sesija sesija);
+        KorisnikDTO DobaviInfoKorisnika(Sesija sesija);
 
         [OperationContract]
         [FaultContract(typeof(Izuzetak))]

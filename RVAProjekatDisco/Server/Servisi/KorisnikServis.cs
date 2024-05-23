@@ -62,7 +62,7 @@ namespace Server.Servisi
             }
         }
 
-        public KorisnikDTO VratiInfoKorisnika(Sesija sesija)
+        public KorisnikDTO DobaviInfoKorisnika(Sesija sesija)
         {
             try
             {

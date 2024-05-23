@@ -20,5 +20,7 @@ namespace Server.PristupBaziPodataka
         }
 
         public DbSet<Korisnik> Korisnici { get; set; }
+        public DbSet<Pesma> Pesme { get; set; }
+        public DbSet<Plejlista> Plejliste { get; set; }
     }
 }

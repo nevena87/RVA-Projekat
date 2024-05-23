@@ -12,6 +12,8 @@ namespace Common.ObjektiDTO
     public class PlejlistaDTO
     {
         [DataMember]
+        public int IdPlejliste { get; set; }
+        [DataMember]
         public string Naziv { get; set; }
         [DataMember]
         public string Autor { get; set; }
