@@ -55,6 +55,27 @@ namespace Server
 
             DbManager.Instance.DodajKorisnika(admin);
 
+            PesmaMP3 pesmaMP3 = new PesmaMP3()
+            {
+                Naziv = "Soba 501",
+                Autor = "Aco Pejovic",
+                DuzinaMinute = 3,
+                DuzinaSekunde = 12
+            };
+
+            DbManager.Instance.DodajPesmu(pesmaMP3);
+
+
+            Plejlista plejlista = new Plejlista()
+            {
+                Naziv = "Muzika 2024",
+                Autor = "Nevena"
+            };
+
+            plejlista.ListaPesama.Add(pesmaMP3);
+
+            DbManager.Instance.DodajPlejlistu(plejlista);
+
             Console.WriteLine("Zavrseno");
         }
         #endregion
