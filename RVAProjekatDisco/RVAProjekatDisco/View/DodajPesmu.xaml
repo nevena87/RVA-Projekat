@@ -1,0 +1,42 @@
+﻿<Window x:Class="RVAProjekatDisco.View.DodajPesmu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RVAProjekatDisco.View"
+        mc:Ignorable="d"
+        Title="" Height="370.733" Width="380.099" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True">
+    <Window.Resources>
+        <LinearGradientBrush x:Key="WindowFrameBrush" StartPoint="0,0.5" EndPoint="1,0.5">
+            <GradientStop Color="CadetBlue" Offset="0.4"/>
+            <GradientStop Color="Gray" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Resources>
+    <Border Background="#50FFFFFF" CornerRadius="5" BorderBrush="{StaticResource WindowFrameBrush}" BorderThickness="3,0,3,3">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="408*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Dodavanje pesme" FontSize="30" HorizontalAlignment="Left" Margin="44,10,0,0" VerticalAlignment="Top" Width="302" Height="50"/>
+
+            <Label Content="Naziv:" HorizontalAlignment="Left" Margin="44,87,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+            <Label Content="Autor:" HorizontalAlignment="Left" Margin="44,118,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="26" Width="57"/>
+            <Label Content="Format zapisa:" HorizontalAlignment="Left" Margin="44,220,0,0" VerticalAlignment="Top" Height="26" Width="85"/>
+            <Label Content="Duzina minute:" HorizontalAlignment="Left" Margin="44,157,0,0" VerticalAlignment="Top" Height="26" Width="90"/>
+            <Label Content="Duzina sekunde:" HorizontalAlignment="Left" Margin="44,184,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.857,2.269" Height="26" Width="98"/>
+
+            <TextBox Name="NazivTextBox" HorizontalAlignment="Left" Height="23" Margin="146,90,0,0" TextWrapping="Wrap" Text="{Binding Naziv}" VerticalAlignment="Top" Width="165"/>
+            <TextBox Name="AutorTextBox" HorizontalAlignment="Left" Height="23" Margin="146,121,0,0" TextWrapping="Wrap" Text="{Binding Autor}" VerticalAlignment="Top" Width="165"/>
+
+            <TextBox Name="DuzinaMinuteTextBox" HorizontalAlignment="Left" Height="23" Margin="146,156,0,0" VerticalAlignment="Top" Width="165" Text="{Binding DuzinaMinute}"/>
+            <TextBox Name="DuzinaSekundeTextBox" HorizontalAlignment="Left" Height="23" Margin="146,187,0,0" VerticalAlignment="Top" Width="165" Text="{Binding DuzinaSekunde}"/>
+            <ComboBox Name="FormatComboBox" HorizontalAlignment="Left" Height="23" Margin="146,220,0,0" Text="" VerticalAlignment="Top" Width="165" ItemsSource="{Binding VrstaFormataZapisa}" SelectedItem="{Binding FormatZapisa}"/>
+
+            <Button Name="NazadDugme" Content="Otkazi" HorizontalAlignment="Left"  Margin="72,273,0,0" VerticalAlignment="Top" Width="87" Height="34" Command="{Binding OtkaziKomanda}"/>
+            <Button Name="DodavanjePesmeDugme" Content="Potvrdi" HorizontalAlignment="Left" Margin="224,273,0,0" VerticalAlignment="Top" Width="87" Height="34" Command="{Binding DodavanjePesmeKomanda}"/>
+        </Grid>
+    </Border>
+</Window>

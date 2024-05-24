@@ -107,7 +107,7 @@ namespace Server.Servisi
             }
 
             SessionInstance sessionInstance = sesije[sesija.IdSesije];
-            return DbManager.Instance.DobaviKorisnikaPoKorisnickomImenu(sessionInstance.KorisnikSesije.KorisnickoIme);
+            return DbManager.Instance.GetUserByUsername(sessionInstance.KorisnikSesije.KorisnickoIme);
         }
 
         public void AutentifikacijaIzuzetak(Sesija sesija)

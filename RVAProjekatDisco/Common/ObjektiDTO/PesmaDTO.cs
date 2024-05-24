@@ -12,6 +12,8 @@ namespace Common.ObjektiDTO
     public class PesmaDTO
     {
         [DataMember]
+        public string IdPesme { get; set; }
+        [DataMember]
         public string Autor { get; set; }
         [DataMember]
         public string Naziv { get; set; }

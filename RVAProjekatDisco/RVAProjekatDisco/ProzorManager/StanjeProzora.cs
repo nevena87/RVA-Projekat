@@ -10,6 +10,8 @@ namespace RVAProjekatDisco.WindowManager
     {
         Pocetna,
         DodajKorisnika,
-        IzmeniPodatkeKorisnika
+        IzmeniPodatkeKorisnika,
+        Plejliste,
+        Pesme
     }
 }

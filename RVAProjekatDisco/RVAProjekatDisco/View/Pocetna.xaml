@@ -17,8 +17,11 @@
             <Label Content="Dobrodosli, trenutno ulogovan" FontSize="15" HorizontalAlignment="Left" Margin="28,0,0,0" VerticalAlignment="Top" Width="218" Height="34"/>
 
             <Button Name="OdjavaDugme" Content="Odjavite se" HorizontalAlignment="Left" Margin="99,152,0,0" VerticalAlignment="Top" Width="105" Height="34" Click="OdjavaDugme_Click"/>
-            <Button Name="IzmijeniPodatkeDugme" Content="{Binding ImePrezime}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="34" Click="IzmijeniPodatkeDugme_Click" Margin="286,0,0,0"/>
+            <Button Name="IzmeniPodatkeDugme" Content="{Binding ImePrezime}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="34" Click="IzmeniPodatkeDugme_Click" Margin="286,0,0,0"/>
             <Button Name="DodajKorisnikaDugme" Content="DodajKorisnika" HorizontalAlignment="Left" Margin="286,39,0,0" VerticalAlignment="Top" Width="113" Height="34" Click="DodajKorisnikaDugme_Click" Visibility="{Binding DugmeDodajKorisnikaVidljivo}"/>
+
+            <Button Name="PrikaziPesmeDugme" Content="Pesme" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" Width="105" Height="34" Click="PrikaziPesmeDugme_Click" RenderTransformOrigin="-0.171,-0.294"/>
+            <Button x:Name="PlejlisteDugme" Content="Plejliste" HorizontalAlignment="Left" Margin="99,39,0,0" VerticalAlignment="Top" Width="105" Height="34" Click="PlejlisteDugme_Click" RenderTransformOrigin="0.362,1.735"/>
         </Grid>
     </Border>
 </Window>

@@ -40,6 +40,13 @@ namespace RVAProjekatDisco.WindowManager
                 case StanjeProzora.IzmeniPodatkeKorisnika:
                     PrikaziSledecuStranu(new IzmeniPodatkeKorisnika(this));
                     break;
+                case StanjeProzora.Plejliste:
+                    PrikaziSledecuStranu(new Plejliste(this));
+                    break;
+
+                case StanjeProzora.Pesme:
+                    PrikaziSledecuStranu(new Pesme(this));
+                    break;
             }
         }
 

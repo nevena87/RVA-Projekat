@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="lof4.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

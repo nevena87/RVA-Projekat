@@ -64,6 +64,7 @@
     <Compile Include="ObjektiDTO\KorisnikDTO.cs" />
     <Compile Include="ObjektiDTO\PesmaDTO.cs" />
     <Compile Include="ObjektiDTO\PlejlistaDTO.cs" />
+    <Compile Include="ObjektiDTO\PlejlistaIzmeniDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -52,7 +52,7 @@ namespace RVAProjekatDisco.View
             ProzorManager.PrethodnaStrana();
         }
 
-        private void IzmijeniPodatkeDugme_Click(object sender, RoutedEventArgs e)
+        private void IzmeniPodatkeDugme_Click(object sender, RoutedEventArgs e)
         {
             ProzorManager.PrikaziStranu(StanjeProzora.IzmeniPodatkeKorisnika);
         }
@@ -76,6 +76,16 @@ namespace RVAProjekatDisco.View
         private KorisnikDTO TrenutnoUlogovan()
         {
             return KreirajKomunikaciju.Komunikacija.VratiInfoKorisnika();
+        }
+
+        private void PlejlisteDugme_Click(object sender, RoutedEventArgs e)
+        {
+            ProzorManager.PrikaziStranu(StanjeProzora.Plejliste);
+        }
+
+        private void PrikaziPesmeDugme_Click(object sender, RoutedEventArgs e)
+        {
+            ProzorManager.PrikaziStranu(StanjeProzora.Pesme);
         }
     }
 }
