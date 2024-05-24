@@ -27,12 +27,11 @@
             <TextBox Name="KorisnickoImeTextBox" HorizontalAlignment="Left" Height="23" Margin="148,86,0,0" TextWrapping="Wrap" Text="{Binding NoviKorisnik.KorisnickoIme}" VerticalAlignment="Top" Width="152"/>
             <TextBox Name="ImeTextBox" HorizontalAlignment="Left" Height="23" Margin="148,117,0,0" TextWrapping="Wrap" Text="{Binding NoviKorisnik.Ime}" VerticalAlignment="Top" Width="152"/>
             <TextBox Name="PrezimeTextBox" HorizontalAlignment="Left" Height="23" Margin="148,148,0,0" TextWrapping="Wrap" Text="{Binding NoviKorisnik.Prezime}" VerticalAlignment="Top" Width="152"/>
-            <TextBox Name="LozinkaTextBox" HorizontalAlignment="Left" Height="23" Margin="148,179,0,0" TextWrapping="Wrap" Text="{Binding NoviKorisnik.Lozinka}" VerticalAlignment="Top" Width="152"/>
+            <PasswordBox Name="LozinkaTextBox" HorizontalAlignment="Left" Height="23" Margin="148,179,0,0" VerticalAlignment="Top" Width="152" PasswordChanged="PasswordBox_PasswordChanged"/>
             <ComboBox Name="TipKorisnikaTextBox" HorizontalAlignment="Left" ItemsSource="{Binding TipKorisnika}" Height="23" Margin="148,207,0,0" SelectedItem="{Binding NoviKorisnik.Tip}" VerticalAlignment="Top" Width="152"/>
 
             <Button Name="DodajKorisnikaDugme" Content="Potvrdi" Margin="213,252,92,0" VerticalAlignment="Top" Height="34" Command="{Binding DodajKorisnikaKomanda}"/>
             <Button Name="OtkaziDugme" Content="Otkazi" HorizontalAlignment="Left" Margin="43,252,0,0" VerticalAlignment="Top" Width="87" Height="34" Command="{Binding OtkaziKomanda}"/>
-
         </Grid>
     </Border>
 </Window>

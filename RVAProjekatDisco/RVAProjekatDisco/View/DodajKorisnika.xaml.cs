@@ -1,18 +1,8 @@
 ﻿using RVAProjekatDisco.ViewModel;
 using RVAProjekatDisco.WindowManager;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace RVAProjekatDisco.View
 {
@@ -21,6 +11,8 @@ namespace RVAProjekatDisco.View
     /// </summary>
     public partial class DodajKorisnika : Window
     {
+        private DodajKorisnikaVM viewModel;
+
         public IProzorManager ProzorManager { get; set; }
 
         public DodajKorisnika(IProzorManager prozorManager)
@@ -28,8 +20,16 @@ namespace RVAProjekatDisco.View
             ProzorManager = prozorManager;
             InitializeComponent();
 
-            DodajKorisnikaVM viewModel = new DodajKorisnikaVM(prozorManager);
+            viewModel = new DodajKorisnikaVM(prozorManager);
             DataContext = viewModel;
+        }
+
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (sender is PasswordBox passwordBox)
+            {
+                viewModel.NoviKorisnik.Lozinka = passwordBox.Password;
+            }
         }
     }
 }

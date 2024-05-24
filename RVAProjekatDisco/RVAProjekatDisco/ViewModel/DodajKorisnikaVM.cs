@@ -6,8 +6,6 @@ using RVAProjekatDisco.WindowManager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace RVAProjekatDisco.ViewModel
@@ -28,8 +26,10 @@ namespace RVAProjekatDisco.ViewModel
 
         public DodajKorisnikaVM(IProzorManager prozorManager) : base(prozorManager)
         {
-            NoviKorisnik = new Korisnik();
-            NoviKorisnik.Tip = Common.Enumeracije.TipKorisnika.Korisnik;
+            NoviKorisnik = new Korisnik
+            {
+                Tip = Common.Enumeracije.TipKorisnika.Korisnik
+            };
             OtkaziKomanda = new KomandaOtkazi(this);
             DodajKorisnikaKomanda = new RelayCommand(DodajKorisnika, ValidacijaDodajKorisnika);
         }
@@ -42,13 +42,10 @@ namespace RVAProjekatDisco.ViewModel
 
         public bool ValidacijaDodajKorisnika()
         {
-            if (NoviKorisnik.Ime != null && NoviKorisnik.Ime.Length > 0 &&
-                NoviKorisnik.Prezime != null && NoviKorisnik.Prezime.Length > 0 &&
-                NoviKorisnik.KorisnickoIme != null && NoviKorisnik.KorisnickoIme.Length > 0 &&
-                NoviKorisnik.Lozinka != null && NoviKorisnik.Lozinka.Length > 0)
-                return true;
-            else
-                return false;
+            return !string.IsNullOrEmpty(NoviKorisnik.Ime) &&
+                   !string.IsNullOrEmpty(NoviKorisnik.Prezime) &&
+                   !string.IsNullOrEmpty(NoviKorisnik.KorisnickoIme) &&
+                   !string.IsNullOrEmpty(NoviKorisnik.Lozinka);
         }
     }
 }
