@@ -21,6 +21,9 @@ namespace RVAProjekatDisco.KomunikacijaWCF
         private ChannelFactory<IKorisnikServis> korisnikServisFactory;
         private ChannelFactory<IDataServis> dataServisFactory;
 
+
+
+
         private ILogovanjeServis logovanjeServisProxy;
         private IKorisnikServis korisnikServisProxy;
         private IDataServis dataServisProxy;

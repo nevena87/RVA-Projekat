@@ -13,6 +13,10 @@ using System.Threading.Tasks;
 namespace Common.Model
 {
     [DataContract]
+    [KnownType(typeof(PesmaMP3))]
+    [KnownType(typeof(PesmaWAV))]
+    [KnownType(typeof(PesmaFLAC))]
+    [KnownType(typeof(PesmaOGG))]
     public abstract class Pesma
 	{
         [Key]
