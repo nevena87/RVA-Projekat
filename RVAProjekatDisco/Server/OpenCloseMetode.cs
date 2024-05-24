@@ -12,6 +12,7 @@ namespace Server
     {
         private ServiceHost logovanjeService;
         private ServiceHost korisnikService;
+        private ServiceHost dataService;
 
         public OpenCloseMetode() { }
 
@@ -19,15 +20,18 @@ namespace Server
         {
             logovanjeService = new ServiceHost(typeof(LogovanjeServis));
             korisnikService = new ServiceHost(typeof(KorisnikServis));
+            dataService = new ServiceHost(typeof(DataServis));
 
             logovanjeService.Open();
             korisnikService.Open();
+            dataService.Open();
         }
 
         public void Close()
         {
             logovanjeService.Close();
             korisnikService.Close();
+            dataService.Close();
         }
     }
 }
