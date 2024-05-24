@@ -13,20 +13,16 @@
         </LinearGradientBrush>
     </Window.Resources>
     <Border Background="#50FFFFFF" CornerRadius="5" BorderBrush="{StaticResource WindowFrameBrush}" BorderThickness="3,0,3,3">
-
         <Grid Margin="0,0,-6,0">
             <Label Content="DISCO" FontSize="30" HorizontalAlignment="Left" Margin="97,10,0,0" VerticalAlignment="Top" Width="151" Height="46"/>
             <Label Content="Korisnicko ime:" HorizontalAlignment="Left" Margin="22,79,0,0" VerticalAlignment="Top"/>
             <TextBox Name="KorisnickoImeTextBox" HorizontalAlignment="Left" Height="23" Margin="111,79,0,0" TextWrapping="Wrap" 
                  Text="{Binding KorisnickoIme, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="165" 
                  RenderTransformOrigin="0.448,-1.174"/>
-
             <Label Content="Lozinka:" HorizontalAlignment="Left" Margin="55,104,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.442,2.5"/>
-            <TextBox Name="LozinkaTextBox" HorizontalAlignment="Left" Height="23" Margin="112,107,0,0" VerticalAlignment="Top" Width="165" 
-         Text ="{Binding KorisnikZaLog.Lozinka, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"/>
-
+            <PasswordBox Name="LozinkaPasswordBox" HorizontalAlignment="Left" Height="23" Margin="112,107,0,0" VerticalAlignment="Top" Width="165"
+                         PasswordChanged="PasswordBox_PasswordChanged"/>
             <Button Name="LogovanjeDugme" Content="Prijavite se" HorizontalAlignment="Left" Margin="130,145,0,0" VerticalAlignment="Top" Width="87" Height="34" Command="{Binding LogovanjeKomanda}"/>
-
             <Button Name="ExitDugme" Content="X" HorizontalAlignment="Left" Margin="320,0,0,0" VerticalAlignment="Top" Width="23" Height="24" Click="ExitDugme_Click"/>
         </Grid>
     </Border>

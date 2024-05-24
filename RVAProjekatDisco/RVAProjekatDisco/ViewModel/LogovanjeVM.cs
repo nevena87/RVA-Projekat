@@ -5,12 +5,8 @@ using RVAProjekatDisco.KomunikacijaWCF;
 using RVAProjekatDisco.View;
 using RVAProjekatDisco.WindowManager;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace RVAProjekatDisco.ViewModel
@@ -25,13 +21,25 @@ namespace RVAProjekatDisco.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
 
-        public String KorisnickoIme
+        public string KorisnickoIme
         {
             get { return KorisnikZaLog.KorisnickoIme; }
             set
             {
                 KorisnikZaLog.KorisnickoIme = value;
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(nameof(KorisnickoIme)));
+                OnPropertyChanged(nameof(KorisnickoIme));
+            }
+        }
+
+        private string lozinka;
+        public string Lozinka
+        {
+            get { return lozinka; }
+            set
+            {
+                lozinka = value;
+                KorisnikZaLog.Lozinka = value;
+                OnPropertyChanged(nameof(Lozinka));
             }
         }
 
@@ -65,7 +73,6 @@ namespace RVAProjekatDisco.ViewModel
                     NevalidanUnos unos = new NevalidanUnos();
                     unos.ShowDialog();
                 }
-
             }
             catch (FaultException<Izuzetak> izuzetak)
             {
@@ -73,5 +80,11 @@ namespace RVAProjekatDisco.ViewModel
                 Console.WriteLine(izuzetak.Detail.Poruka);
             }
         }
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
+
