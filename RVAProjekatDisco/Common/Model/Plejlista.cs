@@ -27,7 +27,10 @@ namespace Common.Model
 		public List<Pesma> ListaPesama {  get; set; }
 
 		// Konstruktor(i)
-		public Plejlista() { }
+		public Plejlista() 
+		{
+			ListaPesama = new List<Pesma>();
+		}
 
 		public Plejlista(PlejlistaDTO pl)
 		{
@@ -83,12 +86,15 @@ namespace Common.Model
 				Naziv = this.Naziv + "_kopija"			
 			};
 
-			kopija.ListaPesama = new List<Pesma>(this.ListaPesama.Count);
-			foreach (var item in this.ListaPesama)
+			kopija.ListaPesama = new List<Pesma>();
+			if (this.ListaPesama.Count > 0)
 			{
-				kopija.ListaPesama.Add(item.KlonirajPesmu());
-			}
-
+                foreach (var item in this.ListaPesama)
+                {
+                    kopija.ListaPesama.Add(item.KlonirajPesmu());
+                }
+            }
+			
 			return kopija;
 		}
 	}
