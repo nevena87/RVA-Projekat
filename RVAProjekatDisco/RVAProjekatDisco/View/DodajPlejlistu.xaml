@@ -49,7 +49,9 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Path=Naziv}" Header="Naziv" Width="*"/>
                     <DataGridTextColumn Binding="{Binding Path=Autor}" Header="Autor" Width="*"/>
-                    <DataGridTextColumn Binding="{Binding Path=ListaPesama}" Header="Lista Pesama" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=DuzinaMinute}" Header="Duzina Minute" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=DuzinaSekunde}" Header="Duzina Sekunde" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=Format}" Header="Format Zapisa" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
 
