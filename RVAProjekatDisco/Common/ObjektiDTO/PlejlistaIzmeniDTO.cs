@@ -20,6 +20,6 @@ namespace Common.ObjektiDTO
         [DataMember]
         public List<Pesma> NovaListaPesama { get; set; }
         [DataMember]
-        public bool Azurirano { get; set; }
+        public bool Azurirano { get; set; } = false;
     }
 }

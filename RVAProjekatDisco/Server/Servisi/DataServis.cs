@@ -17,6 +17,7 @@ namespace Server.Servisi
     {
         private static readonly ILog log = LogManager.GetLogger(typeof(DataServis));
 
+        #region Plejliste
         public Plejlista DuplirajPlejlistu(Sesija sesija, int idPlejliste)
         {
             try
@@ -24,7 +25,6 @@ namespace Server.Servisi
                 SesijaManager.Instance.AutentifikacijaIzuzetak(sesija);
 
                 Plejlista plejlistaZaKloniranje = DbManager.Instance.VratiPlejlistu(idPlejliste);
-
                 Plejlista kloniranaPlejlista = plejlistaZaKloniranje.KlonirajPlejlistu();
 
                 List<Pesma> kopijaPesmeUPlejlisti = kloniranaPlejlista.ListaPesama;
@@ -41,6 +41,28 @@ namespace Server.Servisi
             catch (FaultException<Izuzetak> ex)
             {
                 Console.WriteLine("Error: " + ex.Detail.Poruka);
+                return null;
+            }
+        }
+
+        public List<Plejlista> VratiPlejliste(Sesija sesija)
+        {
+            try
+            {
+                SesijaManager.Instance.AutentifikacijaIzuzetak(sesija);
+                List<Plejlista> plejliste = DbManager.Instance.VratiSvePlejliste();
+                List<Plejlista> kloniranePlejliste = new List<Plejlista>(plejliste.Count);
+
+                foreach (var item in plejliste)
+                {
+                    kloniranePlejliste.Add(item.KlonirajPlejlistu());
+                }
+
+                return kloniranePlejliste;
+            }
+            catch (FaultException<Izuzetak> ex)
+            {
+                Console.WriteLine("Greska: " + ex.Detail.Poruka);
                 return null;
             }
         }
@@ -69,17 +91,16 @@ namespace Server.Servisi
                     {
                         DbManager.Instance.ObrisiPesmuIzPlejliste(izmenjenaPlejlista.IdPlejliste);
                     }
+
+                    PesmaFactory fabrika = new PesmaFactory();
                     foreach (var item in plejlistaIzmeniDTO.NovaListaPesama)
                     {
-                        PesmaMP3 pesma = new PesmaMP3()
-                        {
-                            Naziv = item.Naziv,
-                            Autor = item.Autor,
-                            DuzinaMinute = item.DuzinaMinute,
-                            DuzinaSekunde = item.DuzinaSekunde,
-                            Format = item.Format
-                        };
-
+                        Pesma pesma = fabrika.NapraviPesmu(item.Format);
+                        pesma.Naziv = item.Naziv;
+                        pesma.Autor = item.Autor;
+                        pesma.DuzinaMinute = item.DuzinaMinute;
+                        pesma.DuzinaSekunde = item.DuzinaSekunde;
+                        
                         izmenjenaPlejlista.ListaPesama.Add(pesma);
                     }
                 }
@@ -130,82 +151,15 @@ namespace Server.Servisi
                 SesijaManager.Instance.AutentifikacijaIzuzetak(sesija);
                 DbManager.Instance.ObrisiPlejlistu(idPlejliste);
                 log.Info("Plejlista sa id-em " + idPlejliste + " je obrisana!");
-
             }
             catch (FaultException<Izuzetak> ex)
             {
                 Console.WriteLine("Greska: " + ex.Detail.Poruka);
             }
         }
+        #endregion Plejliste
 
-        public void ObrisiPesmu(Sesija sesija, int idPesme)
-        {
-            try
-            {
-                SesijaManager.Instance.AutentifikacijaIzuzetak(sesija);
-                DbManager.Instance.ObrisiPesmu(idPesme);
-                log.Info("Pesma sa id-em " + idPesme + " je obrisan!");
-            }
-            catch (FaultException<Izuzetak> ex)
-            {
-                Console.WriteLine("Greska: " + ex.Detail.Poruka);
-            }
-        }
-
-        public int DodajPesmu(Sesija sesija, Pesma pesma)
-        {
-            try
-            {
-                SesijaManager.Instance.AutentifikacijaIzuzetak(sesija);
-                Pesma pesmaPostoji = DbManager.Instance.VratiPesmuPrekoId(pesma.IdPesme);
-                if (pesmaPostoji == null)
-                {
-                    pesmaPostoji = DbManager.Instance.DodajPesmu((PesmaMP3)pesma);
-                }
-                else
-                {
-                    pesmaPostoji.Naziv = pesma.Naziv;
-                    pesmaPostoji.Autor = pesma.Autor;
-                    pesmaPostoji.DuzinaMinute = pesma.DuzinaMinute;
-                    pesmaPostoji.DuzinaSekunde = pesma.DuzinaSekunde;
-                    pesmaPostoji.Format = pesma.Format;
-
-                    DbManager.Instance.SacuvajPromene();
-                }
-
-                log.Info("Pesma sa id-em" + pesmaPostoji.IdPesme + " je sacuvan!");
-                return pesmaPostoji.IdPesme;
-
-            }
-            catch (FaultException<Izuzetak> ex)
-            {
-                Console.WriteLine("Greska: " + ex.Detail.Poruka);
-                return -1;
-            }
-        }
-
-        public List<Plejlista> VratiPlejliste(Sesija sesija)
-        {
-            try
-            {
-                SesijaManager.Instance.AutentifikacijaIzuzetak(sesija);
-                List<Plejlista> plejliste = DbManager.Instance.VratiSvePlejliste();
-                List<Plejlista> kloniranePlejliste = new List<Plejlista>(plejliste.Count);
-
-                foreach (var item in plejliste)
-                {
-                    kloniranePlejliste.Add(item.KlonirajPlejlistu());
-                }
-
-                return kloniranePlejliste;
-            }
-            catch (FaultException<Izuzetak> ex)
-            {
-                Console.WriteLine("Greska: " + ex.Detail.Poruka);
-                return null;
-            }
-        }
-
+        #region Pesme
         public Pesma VratiPesmu(Sesija sesija, int idPesme)
         {
             try
@@ -231,16 +185,17 @@ namespace Server.Servisi
 
                 foreach (var item in pesmeiIzBaze)
                 {
-                    bool pronadjenDupkilat = false;
+                    bool pronadjenDuplikat = false;
                     foreach (var item1 in pomocna)
                     {
                         if (item.Naziv == item1.Naziv && item.Autor == item1.Autor && item.DuzinaMinute == item1.DuzinaMinute &&
                             item.DuzinaSekunde == item1.DuzinaSekunde && item1.Format == item1.Format)
                         {
-                            pronadjenDupkilat = true;
+                            pronadjenDuplikat = true;
+                            break;
                         }
                     }
-                    if (!pronadjenDupkilat)
+                    if (!pronadjenDuplikat)
                     {
                         pomocna.Add(item);
                     }
@@ -254,5 +209,52 @@ namespace Server.Servisi
                 return null;
             }
         }
+
+        public void ObrisiPesmu(Sesija sesija, int idPesme)
+        {
+            try
+            {
+                SesijaManager.Instance.AutentifikacijaIzuzetak(sesija);
+                DbManager.Instance.ObrisiPesmu(idPesme);
+                log.Info("Pesma sa id-em " + idPesme + " je obrisan!");
+            }
+            catch (FaultException<Izuzetak> ex)
+            {
+                Console.WriteLine("Greska: " + ex.Detail.Poruka);
+            }
+        }
+
+        public int DodajPesmu(Sesija sesija, Pesma pesma)
+        {
+            try
+            {
+                SesijaManager.Instance.AutentifikacijaIzuzetak(sesija);
+                Pesma pesmaPostoji = DbManager.Instance.VratiPesmuPrekoId(pesma.IdPesme);
+                // AKo ne postoji, samo se upisuje u bazu
+                if (pesmaPostoji == null)
+                {
+                    pesmaPostoji = DbManager.Instance.DodajPesmu(pesma);
+                }
+                // Ako postoji, onda se ažurira postojeća pesma
+                else
+                {
+                    pesmaPostoji.Naziv = pesma.Naziv;
+                    pesmaPostoji.Autor = pesma.Autor;
+                    pesmaPostoji.DuzinaMinute = pesma.DuzinaMinute;
+                    pesmaPostoji.DuzinaSekunde = pesma.DuzinaSekunde;
+
+                    DbManager.Instance.SacuvajPromene();
+                }
+
+                log.Info("Pesma sa id-em" + pesmaPostoji.IdPesme + " je sacuvan!");
+                return pesmaPostoji.IdPesme;
+            }
+            catch (FaultException<Izuzetak> ex)
+            {
+                Console.WriteLine("Greska: " + ex.Detail.Poruka);
+                return -1;
+            }
+        }
+        #endregion Pesme
     }
 }

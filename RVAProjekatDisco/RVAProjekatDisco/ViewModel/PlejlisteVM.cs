@@ -55,7 +55,6 @@ namespace RVAProjekatDisco.ViewModel
             PretraziPlejlistu();
         }
 
-
         public bool IzabranaPlejlista()
         {
             bool selektovano = (SelektovanaPlejlista != null) ? true : false;
@@ -161,8 +160,8 @@ namespace RVAProjekatDisco.ViewModel
 
             return false;
         }
-
     }
+
     public enum KriterijumiPretrage
     {
         IdPlejliste, Naziv, Autor

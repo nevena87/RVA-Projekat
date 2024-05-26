@@ -32,11 +32,9 @@ namespace Server
 
             openClose.Close();
             Console.WriteLine("Server je zaustavljen...");
-
         }
 
         #region INICIJALNI PODACI
-        // TODO dodati i za Plejliste i za Pesme
         private static void InicijalniPodaciZaBazu()
         {
             if (!(DbManager.Instance.discoContext.Korisnici.Count() == 0 &&
@@ -46,6 +44,7 @@ namespace Server
                 return;
             }
 
+            // Admin korisnik
             Korisnik admin = new Korisnik()
             {
                 KorisnickoIme = "admin",
@@ -57,6 +56,7 @@ namespace Server
 
             DbManager.Instance.DodajKorisnika(admin);
 
+            // Pesma
             PesmaMP3 pesmaMP3 = new PesmaMP3()
             {
                 Naziv = "Soba 501",
@@ -64,18 +64,15 @@ namespace Server
                 DuzinaMinute = 3,
                 DuzinaSekunde = 12
             };
-
             DbManager.Instance.DodajPesmu(pesmaMP3);
 
-
+            // Plejlista
             Plejlista plejlista = new Plejlista()
             {
                 Naziv = "Muzika 2024",
                 Autor = "Nevena"
             };
-
             plejlista.ListaPesama.Add(pesmaMP3);
-
             DbManager.Instance.DodajPlejlistu(plejlista);
 
             Console.WriteLine("Zavrseno");

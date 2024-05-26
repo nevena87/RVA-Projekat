@@ -18,6 +18,6 @@ namespace Common.ObjektiDTO
         [DataMember]
         public string Autor { get; set; }
         [DataMember]
-        public List<Pesma> ListaPesama { get; set; }    // trebalo bi samo get, ali necu da komplikujem
+        public List<Pesma> ListaPesama { get; set; }
     }
 }

@@ -21,9 +21,6 @@ namespace RVAProjekatDisco.KomunikacijaWCF
         private ChannelFactory<IKorisnikServis> korisnikServisFactory;
         private ChannelFactory<IDataServis> dataServisFactory;
 
-
-
-
         private ILogovanjeServis logovanjeServisProxy;
         private IKorisnikServis korisnikServisProxy;
         private IDataServis dataServisProxy;
@@ -92,7 +89,6 @@ namespace RVAProjekatDisco.KomunikacijaWCF
         #endregion Korisnik
 
         #region Plejliste
-
         public List<Plejlista> VratiPlejliste()
         {
             log.Info("Vrati sve plejliste...");
@@ -124,11 +120,9 @@ namespace RVAProjekatDisco.KomunikacijaWCF
             log.Info("Kloniranje plejliste sa id-em" + idPlejliste);
             return dataServisProxy.DuplirajPlejlistu(sesija, idPlejliste);
         }
-
         #endregion Plejliste
 
         #region Pesme
-
         public int DodajPesmu(Pesma pesma)
         {
             log.Info("Dodavanje pesme sa id-em: " + pesma.IdPesme);
@@ -152,7 +146,6 @@ namespace RVAProjekatDisco.KomunikacijaWCF
             dataServisProxy.ObrisiPesmu(sesija, idPesme);
             log.Info("Brisanje pesme sa id-em: " + idPesme);
         }
-
         #endregion Pesme
     }
 }

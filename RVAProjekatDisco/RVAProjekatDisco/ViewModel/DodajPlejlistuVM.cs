@@ -24,12 +24,9 @@ namespace RVAProjekatDisco.ViewModel
 
         public Plejlista TrenutnaPlejlista { get; set; }
         public ObservableCollection<Pesma> ListaPesama { get; set; }
-
         public ObservableCollection<Pesma> ListaPesamaIzTabele { get; set; }
 
-
         public Pesma selektovanaPesma { get; set; }
-
         public Pesma selektovanaPesmaIzTabele { get; set; }
         public int IdSelektovanePesme { get; set; }
 

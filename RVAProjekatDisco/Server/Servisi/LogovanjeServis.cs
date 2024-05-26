@@ -50,7 +50,6 @@ namespace Server.Servisi
                 {
                     log.Info("Korsnik uspjesno ulogovan: " + logovaniKorisnik.KorisnickoIme);
                     return SesijaManager.Instance.NapraviNovuSesiju(logovaniKorisnik);
-
                 }
             }
             catch (FaultException<Izuzetak>)

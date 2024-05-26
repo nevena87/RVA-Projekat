@@ -20,6 +20,7 @@ namespace Server.PristupBaziPodataka
             discoContext = new DiscoContext();
         }
 
+        // Singleton pattern
         public static DbManager Instance
         {
             get
@@ -40,6 +41,7 @@ namespace Server.PristupBaziPodataka
             }
         }
 
+        #region Korisnici
         public Korisnik GetUserByUsername(string korisnickoIme)
         {
             lock (discoContext)
@@ -100,30 +102,20 @@ namespace Server.PristupBaziPodataka
                 discoContext.SaveChanges();
             }
         }
+        #endregion Korisnici
 
-        public PesmaMP3 DodajPesmu(PesmaMP3 pesma)
+        #region Pesme
+        public Pesma DodajPesmu(Pesma pesma)
         {
-            PesmaMP3 povratnaVrednost = null;
+            Pesma povratnaVrednost = null;
 
             lock (discoContext)
             {
-                povratnaVrednost = (PesmaMP3)discoContext.Pesme.Add(pesma);
+                povratnaVrednost = discoContext.Pesme.Add(pesma);
                 discoContext.SaveChanges();
             }
             return povratnaVrednost;
         }
-
-        public Plejlista DodajPlejlistu(Plejlista plejlista)
-        {
-            Plejlista povratnaVrednost = null;
-            lock (discoContext)
-            {
-                povratnaVrednost = discoContext.Plejliste.Add(plejlista);
-                discoContext.SaveChanges();
-            }
-            return povratnaVrednost;
-        }
-
         public Pesma VratiPesmuPrekoId(int idPesme)
         {
             lock (discoContext)
@@ -149,7 +141,20 @@ namespace Server.PristupBaziPodataka
                 discoContext.SaveChanges();
             }
         }
+        #endregion Pesme
 
+        #region Plejliste
+        public Plejlista DodajPlejlistu(Plejlista plejlista)
+        {
+            Plejlista povratnaVrednost = null;
+            lock (discoContext)
+            {
+                povratnaVrednost = discoContext.Plejliste.Add(plejlista);
+                discoContext.SaveChanges();
+            }
+            return povratnaVrednost;
+        }
+        
         public List<Plejlista> VratiSvePlejliste()
         {
             lock (discoContext)
@@ -181,6 +186,7 @@ namespace Server.PristupBaziPodataka
             }
         }
 
+        // Brise sve pesme iz plejliste
         public void ObrisiPesmuIzPlejliste(int idPlejliste)
         {
             lock (discoContext)
@@ -212,5 +218,6 @@ namespace Server.PristupBaziPodataka
                 return discoContext.Plejliste.Find(idPlejliste);
             }
         }
+        #endregion Plejliste
     }
 }

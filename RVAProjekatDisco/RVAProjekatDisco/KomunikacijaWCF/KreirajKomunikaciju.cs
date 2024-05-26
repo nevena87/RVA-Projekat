@@ -10,6 +10,7 @@ namespace RVAProjekatDisco.KomunikacijaWCF
     {
         private static KomunikacijaWCF komunikacija = null;
 
+        // Singleton pattern
         public static KomunikacijaWCF Komunikacija
         {
             get

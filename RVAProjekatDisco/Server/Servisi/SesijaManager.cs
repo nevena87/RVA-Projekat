@@ -19,6 +19,7 @@ namespace Server.Servisi
 
         Dictionary<string, SessionInstance> sesije = new Dictionary<string, SessionInstance>();
 
+        // Singleton pattern
         public static SesijaManager Instance
         {
             get

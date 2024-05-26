@@ -38,7 +38,6 @@ namespace Server.Servisi
                 ulogovaniKorisnik.Prezime = korisnik.Prezime;
 
                 DbManager.Instance.IzmeniKorisnika(ulogovaniKorisnik);
-
             }
             catch (FaultException<Izuzetak> ex)
             {
@@ -69,7 +68,6 @@ namespace Server.Servisi
                 SesijaManager.Instance.AutentifikacijaIzuzetak(sesija);
 
                 Korisnik ulogovaniKorisnik = SesijaManager.Instance.VratiKorisnika(sesija);
-
                 if (ulogovaniKorisnik == null)
                 {
                     return null;

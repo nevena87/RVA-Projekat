@@ -8,8 +8,6 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-// TODO: dodati KlonirajPesmu metodu (virtual, pa je potkase override-uju?)
-
 namespace Common.Model
 {
     [DataContract]
@@ -34,7 +32,6 @@ namespace Common.Model
         [DataMember]
         public FormatZapisa Format { get; set; }
 
-        // Da li mi treba konstruktor u apstraktnoj klasi?
         public Pesma() { }
 
         // Nebitno šta je ovde, svakako se radi override

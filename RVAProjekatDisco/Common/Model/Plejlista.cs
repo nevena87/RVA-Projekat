@@ -83,7 +83,7 @@ namespace Common.Model
 			{
 				IdPlejliste = this.IdPlejliste,
 				Autor = this.Autor,
-				Naziv = this.Naziv + "_kopija"			
+				Naziv = this.Naziv			
 			};
 
 			kopija.ListaPesama = new List<Pesma>();

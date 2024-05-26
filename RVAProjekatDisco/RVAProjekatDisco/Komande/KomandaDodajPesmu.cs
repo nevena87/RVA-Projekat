@@ -32,14 +32,14 @@ namespace RVAProjekatDisco.Komande
 
         public void Izvrsi()
         {
-            novaPesma = new PesmaMP3();
+            PesmaFactory fabrika = new PesmaFactory();
+            novaPesma = fabrika.NapraviPesmu(this.FormatZapisa);
 
             novaPesma.Naziv = Naziv;
             novaPesma.Autor = Autor;
             novaPesma.DuzinaMinute = DuzinaMinute;
             novaPesma.DuzinaSekunde = DuzinaSekunde;
             novaPesma.Format = FormatZapisa;
-
 
             dodajPlejlistuVM.ListaPesamaIzTabele.Add(novaPesma);
         }

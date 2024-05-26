@@ -1,6 +1,4 @@
-﻿
-
-using Common.Model;
+﻿using Common.Model;
 using System;
 using System.Runtime.Serialization;
 using System.Xml;
