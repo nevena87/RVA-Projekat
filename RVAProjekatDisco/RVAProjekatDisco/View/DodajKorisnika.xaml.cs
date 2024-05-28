@@ -31,5 +31,10 @@ namespace RVAProjekatDisco.View
                 viewModel.NoviKorisnik.Lozinka = passwordBox.Password;
             }
         }
+
+        private void OtkaziDugme_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
