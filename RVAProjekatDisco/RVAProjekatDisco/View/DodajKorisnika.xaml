@@ -45,7 +45,7 @@
             <ComboBox Name="TipKorisnikaTextBox" HorizontalAlignment="Left" ItemsSource="{Binding TipKorisnika}" Height="23" Margin="169,188,0,0" SelectedItem="{Binding NoviKorisnik.Tip}" VerticalAlignment="Top" Width="152"/>
 
             <Button Name="DodajKorisnikaDugme" Foreground="White" Background="Gray" Content="Potvrdi" Margin="211,243,71,0" VerticalAlignment="Top" Height="30" Width="110" Command="{Binding DodajKorisnikaKomanda}"/>
-            <Button Name="OtkaziDugme" Foreground="White" Background="Gray" Content="Otkaži" HorizontalAlignment="Left" Margin="75,243,0,0" VerticalAlignment="Top" Width="110" Height="30" Command="{Binding OtkaziKomanda}" Click="OtkaziDugme_Click"/>
+            <Button Name="OtkaziDugme" Foreground="White" Background="Gray" Content="Otkaži" HorizontalAlignment="Left" Margin="75,243,0,0" VerticalAlignment="Top" Width="110" Height="30" Command="{Binding OtkaziKomanda}"/>
         </Grid>
     </Border>
 </Window>
