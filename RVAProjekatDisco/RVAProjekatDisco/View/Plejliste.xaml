@@ -11,35 +11,48 @@
             <GradientStop Color="CadetBlue" Offset="0.4"/>
             <GradientStop Color="Gray" Offset="1"/>
         </LinearGradientBrush>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Border Background="#50FFFFFF" CornerRadius="5" BorderBrush="{StaticResource WindowFrameBrush}" BorderThickness="3,0,3,3">
         <Grid>
-            <Button x:Name="NazadDugme" Content="Nazad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="68" Height="20" Command="{Binding OtkaziKomanda}" />
+            <Grid.Background>
+                <ImageBrush ImageSource="/slike/disco.png" Stretch="UniformToFill"/>
+            </Grid.Background>
+            <Button x:Name="NazadDugme" Content="Nazad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="68" Height="20" Command="{Binding OtkaziKomanda}" Background="Gray" Foreground="White"/>
 
             <TextBox x:Name="TekstZaPretraguComboBox" HorizontalAlignment="Left" Height="25" Margin="85,20,0,0" 
                  VerticalAlignment="Top" Width="219" Text="{Binding KriterijumPretrageTekst}"/>
             <ComboBox x:Name="KriterijumComboBox" HorizontalAlignment="Left" Height="25" Margin="318,20,0,0" Text="" VerticalAlignment="Top" Width="141"
                   ItemsSource="{Binding TipoviPretrage}" SelectedItem="{Binding TipoviPretrageEnum}"/>
-            <Button x:Name="PretraziPlejlistuDugme" Content="Pretrazi plejliste" HorizontalAlignment="Left" Margin="475,20,0,0" 
-                VerticalAlignment="Top" Width="99" Height="25" Command="{Binding PretraziPlejlistuKomanda}"/>
+            <Button x:Name="PretraziPlejlistuDugme" Content="Pretraži plejliste" HorizontalAlignment="Left" Margin="475,20,0,0" 
+                VerticalAlignment="Top" Width="99" Height="25" Command="{Binding PretraziPlejlistuKomanda}" Background="Gray" Foreground="White"/>
 
             <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="-10,60,10,389"/>
 
             <DataGrid x:Name="dgridPlejliste" HorizontalAlignment="Left" Margin="0,135,0,0" VerticalAlignment="Top" Height="190" Width="574"
                   ItemsSource="{Binding Plejliste}" AutoGenerateColumns="false" IsReadOnly="True" SelectedItem="{Binding SelektovanaPlejlista}" HorizontalContentAlignment="Center">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Path=IdPlejliste}" Header="Id Plejliste" />
+                    <DataGridTextColumn Binding="{Binding Path=IdPlejliste}" Header="ID"/>
                     <DataGridTextColumn Binding="{Binding Path=Naziv}" Header="Naziv Plejliste" Width="*"/>
                     <DataGridTextColumn Binding="{Binding Path=Autor}" Header="Autor Plejliste" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <Button x:Name="DodajPlejlistuDugme" Content="Dodaj plejlistu" HorizontalAlignment="Left" Margin="122,66,0,0" VerticalAlignment="Top" Width="105" Height="34" Command="{Binding DodajPlejlistuKomanda}"/>
-            <Button x:Name="IzmeniPlejlistuDugme" Content="Izmeni plejlistu" HorizontalAlignment="Left" Margin="241,66,0,0" VerticalAlignment="Top" Width="105" Height="34" Command="{Binding IzmeniPlejlistuKomanda}"/>
-            <Button x:Name="ObrisiPlejlistuDugme" Content="Obrisi plejlistu" HorizontalAlignment="Left" Margin="357,65,0,0" VerticalAlignment="Top" Width="105" Height="34" Command="{Binding ObrisiPlejlistuKomanda}"/>
-            <Button x:Name="KlonirajPlejlistuDugme" Content="Kloniraj plejlistu" HorizontalAlignment="Left" Margin="475,65,0,0" VerticalAlignment="Top" Width="99" Height="34" Command="{Binding KlonirajPlejlistuKomanda}"/>
+            <Button x:Name="DodajPlejlistuDugme" Background="Gray" Foreground="White" Content="Dodaj plejlistu" HorizontalAlignment="Left" Margin="122,66,0,0" VerticalAlignment="Top" Width="105" Height="34" Command="{Binding DodajPlejlistuKomanda}"/>
+            <Button x:Name="IzmeniPlejlistuDugme" Background="Gray" Foreground="White" Content="Izmeni plejlistu" HorizontalAlignment="Left" Margin="241,66,0,0" VerticalAlignment="Top" Width="105" Height="34" Command="{Binding IzmeniPlejlistuKomanda}"/>
+            <Button x:Name="ObrisiPlejlistuDugme" Background="Gray" Foreground="White" Content="Obriši plejlistu" HorizontalAlignment="Left" Margin="357,65,0,0" VerticalAlignment="Top" Width="105" Height="34" Command="{Binding ObrisiPlejlistuKomanda}"/>
+            <Button x:Name="KlonirajPlejlistuDugme" Background="Gray" Foreground="White" Content="Kloniraj plejlistu" HorizontalAlignment="Left" Margin="475,65,0,0" VerticalAlignment="Top" Width="99" Height="34" Command="{Binding KlonirajPlejlistuKomanda}"/>
 
-            <Label Content="Izaberite opciju" FontSize="15" HorizontalAlignment="Left" Margin="0,66,0,0" VerticalAlignment="Top" Width="114" Height="29"/>
-
+            <Label Content="Izaberite opciju:" FontSize="15" HorizontalAlignment="Left" Margin="3,67,0,0" VerticalAlignment="Top" Width="114" Height="29" Foreground="White"/>
         </Grid>
     </Border>
 </Window>

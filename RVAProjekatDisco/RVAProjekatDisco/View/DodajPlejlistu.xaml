@@ -11,52 +11,66 @@
             <GradientStop Color="CadetBlue" Offset="0.4"/>
             <GradientStop Color="Gray" Offset="1"/>
         </LinearGradientBrush>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Border Background="#50FFFFFF" CornerRadius="5" BorderBrush="{StaticResource WindowFrameBrush}" BorderThickness="3,0,3,3">
         <Grid>
-            <Label Content="PODACI O PLEJLISTI" FontSize="15" HorizontalAlignment="Left" Margin="190,5,0,0" VerticalAlignment="Top" Width="143" Height="29"/>
+            <Grid.Background>
+                <ImageBrush ImageSource="/slike/disco.png" Stretch="UniformToFill"/>
+            </Grid.Background>
+            <Label Content="PODACI O PLEJLISTI" Foreground="White" FontSize="15" HorizontalAlignment="Left" Margin="190,5,0,0" VerticalAlignment="Top" Width="143" Height="29"/>
 
-            <Button x:Name="UndoDugme" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="20" Margin="220,40,0,0" Command="{Binding UndoKomanda}">
+            <Button x:Name="UndoDugme" Foreground="White" Background="Gray" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="20" Margin="220,40,0,0" Command="{Binding UndoKomanda}">
                 <StackPanel>
-                    <Image Source="/slike/Undo.jpg" Height="18" Width="34" RenderTransformOrigin="0.559,0.5"/>
+                    <Image Source="/slike/Undo.jpg" Height="18" Width="38" RenderTransformOrigin="0.559,0.5"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="RedoDugme" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="20" Margin="263,40,0,0" Command="{Binding RedoKomanda}">
+            <Button x:Name="RedoDugme" Foreground="White" Background="Gray" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="20" Margin="263,40,0,0" Command="{Binding RedoKomanda}">
                 <StackPanel>
                     <Image Source="/slike/Redo.jpg" Height="18" Width="34" RenderTransformOrigin="0.377,0.574"/>
 
                 </StackPanel>
             </Button>
 
-            <Label Content="Naziv plejliste" HorizontalAlignment="Left" Margin="155,79,0,0" VerticalAlignment="Top" Width="100" Height="24"/>
-            <Label Content="Autor plejliste" HorizontalAlignment="Left" Margin="155,108,0,0" VerticalAlignment="Top" Width="100" Height="24"/>
+            <Label Content="Naziv plejliste:" Foreground="White" HorizontalAlignment="Left" Margin="155,79,0,0" VerticalAlignment="Top" Width="100" Height="29"/>
+            <Label Content="Autor plejliste:" Foreground="White" HorizontalAlignment="Left" Margin="155,108,0,0" VerticalAlignment="Top" Width="100" Height="35"/>
 
-            <TextBox x:Name="NazivPlejlisteTextBox" HorizontalAlignment="Left" Height="24" Margin="260,79,0,0" VerticalAlignment="Top" Width="126" 
+            <TextBox x:Name="NazivPlejlisteTextBox" HorizontalAlignment="Left" Height="25" Margin="260,79,0,0" VerticalAlignment="Top" Width="126" 
                  Text="{Binding NazivPlejliste}"/>
-            <TextBox x:Name="AutorPlejlisteTextBox" HorizontalAlignment="Left" Height="24" Margin="260,108,0,0" VerticalAlignment="Top" Width="126" Text="{Binding AutorPlejliste}"/>
+            <TextBox x:Name="AutorPlejlisteTextBox" HorizontalAlignment="Left" Height="25" Margin="260,108,0,0" VerticalAlignment="Top" Width="126" Text="{Binding AutorPlejliste}"/>
 
             <Rectangle HorizontalAlignment="Stretch" Fill="Gray" Height="1" Margin="-10,148,10,582"/>
-            <Label Content="Dodaj pesme" HorizontalAlignment="Left" Margin="219,154,0,0" VerticalAlignment="Top" Width="100" Height="27"/>
-            <Label Content="Izaberi pesmu" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top" Width="102" Height="27"/>
+            <Label Content="Dodaj pesme" Foreground="White" HorizontalAlignment="Left" Margin="209,148,0,0" VerticalAlignment="Top" Width="100" Height="33" FontSize="15"/>
+            <Label Content="Izaberi pesmu:" Foreground="White" HorizontalAlignment="Left" Margin="15,187,0,0" VerticalAlignment="Top" Width="102" Height="27"/>
 
-            <ComboBox x:Name="ListaPesamaComboBox" HorizontalAlignment="Left" DisplayMemberPath="Naziv" Height="20" Margin="117,189,0,0"  VerticalAlignment="Top" 
+            <ComboBox x:Name="ListaPesamaComboBox" HorizontalAlignment="Left" DisplayMemberPath="Naziv" Height="22" Margin="108,189,0,0"  VerticalAlignment="Top" 
                   Width="176" ItemsSource="{Binding ListaPesama}" SelectedItem="{Binding selektovanaPesma}" />
-            <Button x:Name="DodajPesmuUPlejlistu" Content="Dodaj pesmu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="20" Margin="303,189,0,0" Command="{Binding DodajPesmuKomanda}"/>
-            <Button x:Name="ObrisiPesmuUPlejlisti" Content="Obrisi pesmu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="20" Margin="408,189,0,0" Command="{Binding ObrisiPesmuKomanda}"/>
+            <Button x:Name="DodajPesmuUPlejlistu" Foreground="White" Background="Gray" Content="Dodaj pesmu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="28" Margin="296,186,0,0" Command="{Binding DodajPesmuKomanda}"/>
+            <Button x:Name="ObrisiPesmuUPlejlisti" Foreground="White" Background="Gray" Content="Obriši pesmu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Height="28" Margin="397,186,0,0" Command="{Binding ObrisiPesmuKomanda}"/>
             <DataGrid x:Name="DataGridPesme" HorizontalAlignment="Left" Margin="10,232,0,0" VerticalAlignment="Top" Height="150" Width="490"
                    AutoGenerateColumns="false" IsReadOnly="True" HorizontalContentAlignment="Center" SelectedIndex ="{Binding IdSelektovanePesme}"
                   ItemsSource="{Binding ListaPesamaIzTabele}" SelectedItem="{Binding selektovanaPesmaIzTabele}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Path=Naziv}" Header="Naziv" Width="*"/>
                     <DataGridTextColumn Binding="{Binding Path=Autor}" Header="Autor" Width="*"/>
-                    <DataGridTextColumn Binding="{Binding Path=DuzinaMinute}" Header="Duzina Minute" Width="*"/>
-                    <DataGridTextColumn Binding="{Binding Path=DuzinaSekunde}" Header="Duzina Sekunde" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=DuzinaMinute}" Header="Dužina Minute" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding Path=DuzinaSekunde}" Header="Dužina Sekunde" Width="*"/>
                     <DataGridTextColumn Binding="{Binding Path=Format}" Header="Format Zapisa" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
 
-            <Button x:Name="OtkaziDugme" Content="Otkazi" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="30" Margin="363,413,0,0" Command="{Binding OtkaziKomanda}"/>
-            <Button x:Name="DodajPlejlistuDugme" Content="Potvrdi" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="29" Margin="240,414,0,0" Command="{Binding DodajPlejlistuKomanda}"/>
+            <Button x:Name="OtkaziDugme" Content="Otkaži" Foreground="White" Background="Gray" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Height="30" Margin="363,413,0,0" Command="{Binding OtkaziKomanda}"/>
+            <Button x:Name="DodajPlejlistuDugme" Foreground="White" Background="Gray" Content="Potvrdi" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Height="30" Margin="240,413,0,0" Command="{Binding DodajPlejlistuKomanda}"/>
         </Grid>
     </Border>
 </Window>

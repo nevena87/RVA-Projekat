@@ -11,32 +11,46 @@
             <GradientStop Color="CadetBlue" Offset="0.4"/>
             <GradientStop Color="Gray" Offset="1"/>
         </LinearGradientBrush>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Border Background="#50FFFFFF" CornerRadius="5" BorderBrush="{StaticResource WindowFrameBrush}" BorderThickness="3,0,3,3">
 
         <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="/slike/disco.png" Stretch="UniformToFill"/>
+            </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="408*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Label Content="Dodavanje pesme" FontSize="30" HorizontalAlignment="Left" Margin="44,10,0,0" VerticalAlignment="Top" Width="302" Height="50"/>
+            <Label Content="Dodavanje pesme" Foreground="White" FontSize="30" HorizontalAlignment="Left" Margin="62,10,0,0" VerticalAlignment="Top" Width="302" Height="50"/>
 
-            <Label Content="Naziv:" HorizontalAlignment="Left" Margin="44,87,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
-            <Label Content="Autor:" HorizontalAlignment="Left" Margin="44,118,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="26" Width="57"/>
-            <Label Content="Format zapisa:" HorizontalAlignment="Left" Margin="44,220,0,0" VerticalAlignment="Top" Height="26" Width="85"/>
-            <Label Content="Duzina minute:" HorizontalAlignment="Left" Margin="44,157,0,0" VerticalAlignment="Top" Height="26" Width="90"/>
-            <Label Content="Duzina sekunde:" HorizontalAlignment="Left" Margin="44,184,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.857,2.269" Height="26" Width="98"/>
+            <Label Content="Naziv:" Foreground="White" HorizontalAlignment="Left" Margin="44,84,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+            <Label Content="Autor:" Foreground="White" HorizontalAlignment="Left" Margin="44,121,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="26" Width="57"/>
+            <Label Content="Format zapisa:" Foreground="White" HorizontalAlignment="Left" Margin="44,232,0,0" VerticalAlignment="Top" Height="26" Width="85"/>
+            <Label Content="Dužina minute:" Foreground="White" HorizontalAlignment="Left" Margin="44,160,0,0" VerticalAlignment="Top" Height="26" Width="90"/>
+            <Label Content="Dužina sekunde:" Foreground="White" HorizontalAlignment="Left" Margin="44,195,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.857,2.269" Height="26" Width="98"/>
 
-            <TextBox Name="NazivTextBox" HorizontalAlignment="Left" Height="23" Margin="146,90,0,0" TextWrapping="Wrap" Text="{Binding Naziv}" VerticalAlignment="Top" Width="165"/>
+            <TextBox Name="NazivTextBox" HorizontalAlignment="Left" Height="23" Margin="146,87,0,0" TextWrapping="Wrap" Text="{Binding Naziv}" VerticalAlignment="Top" Width="165"/>
             <TextBox Name="AutorTextBox" HorizontalAlignment="Left" Height="23" Margin="146,121,0,0" TextWrapping="Wrap" Text="{Binding Autor}" VerticalAlignment="Top" Width="165"/>
 
-            <TextBox Name="DuzinaMinuteTextBox" HorizontalAlignment="Left" Height="23" Margin="146,156,0,0" VerticalAlignment="Top" Width="165" Text="{Binding DuzinaMinute}"/>
-            <TextBox Name="DuzinaSekundeTextBox" HorizontalAlignment="Left" Height="23" Margin="146,187,0,0" VerticalAlignment="Top" Width="165" Text="{Binding DuzinaSekunde}"/>
-            <ComboBox Name="FormatComboBox" HorizontalAlignment="Left" Height="23" Margin="146,220,0,0" Text="" VerticalAlignment="Top" Width="165" ItemsSource="{Binding VrstaFormataZapisa}" SelectedItem="{Binding FormatZapisa}"/>
+            <TextBox Name="DuzinaMinuteTextBox" HorizontalAlignment="Left" Height="23" Margin="146,160,0,0" VerticalAlignment="Top" Width="165" Text="{Binding DuzinaMinute}"/>
+            <TextBox Name="DuzinaSekundeTextBox" HorizontalAlignment="Left" Height="23" Margin="146,198,0,0" VerticalAlignment="Top" Width="165" Text="{Binding DuzinaSekunde}"/>
+            <ComboBox Name="FormatComboBox" HorizontalAlignment="Left" Height="23" Margin="146,235,0,0" Text="" VerticalAlignment="Top" Width="165" ItemsSource="{Binding VrstaFormataZapisa}" SelectedItem="{Binding FormatZapisa}"/>
 
-            <Button Name="NazadDugme" Content="Otkazi" HorizontalAlignment="Left"  Margin="72,273,0,0" VerticalAlignment="Top" Width="87" Height="34" Command="{Binding OtkaziKomanda}"/>
-            <Button Name="DodavanjePesmeDugme" Content="Potvrdi" HorizontalAlignment="Left" Margin="224,273,0,0" VerticalAlignment="Top" Width="87" Height="34" Command="{Binding DodavanjePesmeKomanda}"/>
+            <Button Name="NazadDugme" Background="Gray" Foreground="White" Content="Otkaži" HorizontalAlignment="Left"  Margin="62,294,0,0" VerticalAlignment="Top" Width="110" Height="30" Command="{Binding OtkaziKomanda}"/>
+            <Button Name="DodavanjePesmeDugme" Background="Gray" Foreground="White" Content="Potvrdi" HorizontalAlignment="Left" Margin="201,294,0,0" VerticalAlignment="Top" Width="110" Height="30" Command="{Binding DodavanjePesmeKomanda}"/>
         </Grid>
     </Border>
 </Window>

@@ -13,25 +13,39 @@
             <GradientStop Color="CadetBlue" Offset="0.4"/>
             <GradientStop Color="Gray" Offset="1"/>
         </LinearGradientBrush>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Border Background="#50FFFFFF" CornerRadius="5" BorderBrush="{StaticResource WindowFrameBrush}" BorderThickness="3,0,3,3">
         <Grid>
-            <Label Content="Dodavanje novog korisnika" FontSize="20" HorizontalAlignment="Left" Margin="43,10,0,0" VerticalAlignment="Top" Width="262"/>
+            <Grid.Background>
+                <ImageBrush ImageSource="/slike/background.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
+            <Label Content="Dodavanje novog korisnika" Foreground="White" FontSize="20" HorizontalAlignment="Left" Margin="75,22,0,0" VerticalAlignment="Top" Width="262"/>
 
-            <Label Content="Korisnicko ime:" HorizontalAlignment="Left" Margin="28,86,0,0" VerticalAlignment="Top"/>
-            <Label Content="Ime:" HorizontalAlignment="Left" Margin="84,114,0,0" VerticalAlignment="Top" Height="26" Width="42"/>
-            <Label Content="Prezime" HorizontalAlignment="Left" Margin="66,145,0,0" VerticalAlignment="Top"/>
-            <Label Content="Lozinka:" HorizontalAlignment="Left" Margin="66,176,0,0" VerticalAlignment="Top"/>
-            <Label Content="TipKorisnika:" HorizontalAlignment="Left" Margin="43,202,0,0" VerticalAlignment="Top"/>
+            <Label Content="Korisničko ime:" Foreground="White" HorizontalAlignment="Left" Margin="57,76,0,0" VerticalAlignment="Top"/>
+            <Label Content="Ime:" Foreground="White" HorizontalAlignment="Left" Margin="57,104,0,0" VerticalAlignment="Top" Height="26" Width="42"/>
+            <Label Content="Prezime" Foreground="White" HorizontalAlignment="Left" Margin="57,132,0,0" VerticalAlignment="Top"/>
+            <Label Content="Lozinka:" Foreground="White" HorizontalAlignment="Left" Margin="57,160,0,0" VerticalAlignment="Top"/>
+            <Label Content="Tip korisnika:" Foreground="White" HorizontalAlignment="Left" Margin="57,188,0,0" VerticalAlignment="Top"/>
 
-            <TextBox Name="KorisnickoImeTextBox" HorizontalAlignment="Left" Height="23" Margin="148,86,0,0" TextWrapping="Wrap" Text="{Binding NoviKorisnik.KorisnickoIme}" VerticalAlignment="Top" Width="152"/>
-            <TextBox Name="ImeTextBox" HorizontalAlignment="Left" Height="23" Margin="148,117,0,0" TextWrapping="Wrap" Text="{Binding NoviKorisnik.Ime}" VerticalAlignment="Top" Width="152"/>
-            <TextBox Name="PrezimeTextBox" HorizontalAlignment="Left" Height="23" Margin="148,148,0,0" TextWrapping="Wrap" Text="{Binding NoviKorisnik.Prezime}" VerticalAlignment="Top" Width="152"/>
-            <PasswordBox Name="LozinkaTextBox" HorizontalAlignment="Left" Height="23" Margin="148,179,0,0" VerticalAlignment="Top" Width="152" PasswordChanged="PasswordBox_PasswordChanged"/>
-            <ComboBox Name="TipKorisnikaTextBox" HorizontalAlignment="Left" ItemsSource="{Binding TipKorisnika}" Height="23" Margin="148,207,0,0" SelectedItem="{Binding NoviKorisnik.Tip}" VerticalAlignment="Top" Width="152"/>
+            <TextBox Name="KorisnickoImeTextBox" HorizontalAlignment="Left" Height="23" Margin="169,76,0,0" TextWrapping="Wrap" Text="{Binding NoviKorisnik.KorisnickoIme}" VerticalAlignment="Top" Width="152"/>
+            <TextBox Name="ImeTextBox" HorizontalAlignment="Left" Height="23" Margin="169,104,0,0" TextWrapping="Wrap" Text="{Binding NoviKorisnik.Ime}" VerticalAlignment="Top" Width="152"/>
+            <TextBox Name="PrezimeTextBox" HorizontalAlignment="Left" Height="23" Margin="169,132,0,0" TextWrapping="Wrap" Text="{Binding NoviKorisnik.Prezime}" VerticalAlignment="Top" Width="152"/>
+            <PasswordBox Name="LozinkaTextBox" HorizontalAlignment="Left" Height="23" Margin="169,160,0,0" VerticalAlignment="Top" Width="152" PasswordChanged="PasswordBox_PasswordChanged"/>
+            <ComboBox Name="TipKorisnikaTextBox" HorizontalAlignment="Left" ItemsSource="{Binding TipKorisnika}" Height="23" Margin="169,188,0,0" SelectedItem="{Binding NoviKorisnik.Tip}" VerticalAlignment="Top" Width="152"/>
 
-            <Button Name="DodajKorisnikaDugme" Content="Potvrdi" Margin="213,252,92,0" VerticalAlignment="Top" Height="34" Command="{Binding DodajKorisnikaKomanda}"/>
-            <Button Name="OtkaziDugme" Content="Otkazi" HorizontalAlignment="Left" Margin="43,252,0,0" VerticalAlignment="Top" Width="87" Height="34" Command="{Binding OtkaziKomanda}"/>
+            <Button Name="DodajKorisnikaDugme" Foreground="White" Background="Gray" Content="Potvrdi" Margin="211,243,71,0" VerticalAlignment="Top" Height="30" Width="110" Command="{Binding DodajKorisnikaKomanda}"/>
+            <Button Name="OtkaziDugme" Foreground="White" Background="Gray" Content="Otkaži" HorizontalAlignment="Left" Margin="75,243,0,0" VerticalAlignment="Top" Width="110" Height="30" Command="{Binding OtkaziKomanda}" Click="OtkaziDugme_Click"/>
         </Grid>
     </Border>
 </Window>

@@ -11,27 +11,41 @@
             <GradientStop Color="CadetBlue" Offset="0.4"/>
             <GradientStop Color="Gray" Offset="1"/>
         </LinearGradientBrush>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Border Background="#50FFFFFF" CornerRadius="5" BorderBrush="{StaticResource WindowFrameBrush}" BorderThickness="3,0,3,3">
 
         <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="/slike/background.jpg" Stretch="UniformToFill"/>
+            </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0*"/>
             </Grid.ColumnDefinitions>
-            <Label Content=" Izmenite podatke" FontSize="27" HorizontalAlignment="Left" Margin="66,26,0,0" VerticalAlignment="Top" Width="239" Height="46"/>
+            <Label Content=" Izmena podataka" Foreground="White" FontSize="27" HorizontalAlignment="Left" Margin="80,26,0,0" VerticalAlignment="Top" Width="239" Height="46"/>
 
-            <Label Content="Ime:" HorizontalAlignment="Left" Margin="40,122,0,0" VerticalAlignment="Top" Height="26" Width="32"/>
-            <Label Content="Prezime:" HorizontalAlignment="Left" Margin="40,153,0,0" VerticalAlignment="Top" Height="26" Width="55"/>
-            <Label Content="Korisnicko ime:" HorizontalAlignment="Left" Margin="40,91,0,0" VerticalAlignment="Top" Height="26" Width="94"/>
+            <Label Content="Ime:" Foreground="White" HorizontalAlignment="Left" Margin="66,121,0,0" VerticalAlignment="Top" Height="25" Width="32"/>
+            <Label Content="Prezime:" Foreground="White" HorizontalAlignment="Left" Margin="64,154,0,0" VerticalAlignment="Top" Height="25" Width="55"/>
+            <Label Content="Korisničko ime:" Foreground="White" HorizontalAlignment="Left" Margin="64,91,0,0" VerticalAlignment="Top" Height="25" Width="94"/>
 
-            <TextBox Name="ImeTextBox" HorizontalAlignment="Left" Height="23" Margin="140,122,0,0" TextWrapping="Wrap" Text="{Binding InformacijeKorisnika.Ime}" VerticalAlignment="Top" Width="165"/>
-            <TextBox Name="PrezimeTextBox" HorizontalAlignment="Left" Height="23" Margin="140,156,0,0" TextWrapping="Wrap" Text="{Binding InformacijeKorisnika.Prezime}" VerticalAlignment="Top" Width="165"/>
-            <TextBox Name="KorisnickoImeTextBox" HorizontalAlignment="Left" Height="23" Margin="139,91,0,0" TextWrapping="Wrap" Text="{Binding InformacijeKorisnika.KorisnickoIme}" VerticalAlignment="Top" Width="165" IsEnabled="False"/>
+            <TextBox Name="ImeTextBox" HorizontalAlignment="Left" Height="25" Margin="163,122,0,0" TextWrapping="Wrap" Text="{Binding InformacijeKorisnika.Ime}" VerticalAlignment="Top" Width="165"/>
+            <TextBox Name="PrezimeTextBox" HorizontalAlignment="Left" Height="25" Margin="163,154,0,0" TextWrapping="Wrap" Text="{Binding InformacijeKorisnika.Prezime}" VerticalAlignment="Top" Width="165"/>
+            <TextBox Name="KorisnickoImeTextBox" HorizontalAlignment="Left" Height="25" Margin="163,91,0,0" TextWrapping="Wrap" Text="{Binding InformacijeKorisnika.KorisnickoIme}" VerticalAlignment="Top" Width="165" IsEnabled="False"/>
 
-            <Button Name="IzmjeneKorisnikaDugme" Content="Potvrdi" HorizontalAlignment="Left" Margin="218,220,0,0" VerticalAlignment="Top" Width="110" Height="34"  Command="{Binding SacuvajKomanda}"/>
+            <Button Name="IzmjeneKorisnikaDugme" Foreground="White" Background="Gray" Content="Potvrdi" HorizontalAlignment="Left" Margin="218,220,0,0" VerticalAlignment="Top" Width="110" Height="30"  Command="{Binding SacuvajKomanda}"/>
 
-            <Button Name="ZatvoriDugme" Content="Otkazi" HorizontalAlignment="Left" Margin="66,220,0,0" VerticalAlignment="Top" Width="80" Height="34"  Command="{Binding OtkaziKomanda}"/>
+            <Button Name="ZatvoriDugme" Foreground="White" Background="Gray" Content="Otkaži" HorizontalAlignment="Left" Margin="66,220,0,0" VerticalAlignment="Top" Width="110" Height="30"  Command="{Binding OtkaziKomanda}"/>
         </Grid>
     </Border>
 </Window>

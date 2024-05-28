@@ -196,5 +196,14 @@
       <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="slike\disco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="slike\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="slike\background.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

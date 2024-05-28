@@ -5,24 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RVAProjekatDisco.View"
         mc:Ignorable="d"
-       Title="" Height="341" Width="516.953" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True">
+        Title="" Height="341" Width="516.953" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True">
     <Window.Resources>
         <LinearGradientBrush x:Key="WindowFrameBrush" StartPoint="0,0.5" EndPoint="1,0.5">
             <GradientStop Color="CadetBlue" Offset="0.4"/>
             <GradientStop Color="Gray" Offset="1"/>
         </LinearGradientBrush>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Border Background="#50FFFFFF" CornerRadius="5" BorderBrush="{StaticResource WindowFrameBrush}" BorderThickness="3,0,3,3">
 
         <Grid>
-            <Label Content="LISTA PESAMA" FontSize="30" HorizontalAlignment="Left" Margin="153,0,0,0" VerticalAlignment="Top"/>
+            <Grid.Background>
+                <ImageBrush ImageSource="/slike/disco.png" Stretch="UniformToFill"/>
+            </Grid.Background>
+            <Label Content="LISTA PESAMA" Foreground="White" FontSize="30" HorizontalAlignment="Left" Margin="153,10,0,0" VerticalAlignment="Top"/>
 
-            <Button Name="DodajPesmuDugme" Content="Dodaj pesmu" HorizontalAlignment="Left" Margin="72,67,0,0" VerticalAlignment="Top" Width="105" Height="34" Command="{Binding DodajPesmuKomanda}"/>
-
-            <Button Name="ObrisiPesmuDugme" Content="Obrisi pesmu" HorizontalAlignment="Left" Margin="309,67,0,0" VerticalAlignment="Top" Width="105" Height="34" Command="{Binding ObrisiPesmuKomanda}"/>
-
-            <Button Name="NazadDugme" Content="Nazad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="34" Command="{Binding OtkaziKomanda}"/>
-
+            <Button Name="DodajPesmuDugme" Background="Gray" Foreground="White" Content="Dodaj pesmu" HorizontalAlignment="Left" Margin="72,67,0,0" VerticalAlignment="Top" Width="105" Height="34" Command="{Binding DodajPesmuKomanda}"/>
+            <Button Name="ObrisiPesmuDugme" Background="Gray" Foreground="White" Content="Obriši pesmu" HorizontalAlignment="Left" Margin="309,67,0,0" VerticalAlignment="Top" Width="105" Height="34" Command="{Binding ObrisiPesmuKomanda}"/>
+            <Button Name="NazadDugme" Background="Gray" Foreground="White" Content="Nazad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="34" Command="{Binding OtkaziKomanda}"/>
 
             <DataGrid x:Name="dataGrid" Margin="0,114,0,-3" ItemsSource="{Binding listaPesama}" AutoGenerateColumns="false" Height="227" 
                   VerticalAlignment="Top" HorizontalAlignment="Left" Width="511" IsReadOnly="True" SelectedItem="{Binding selektovanaPesma}">
@@ -30,8 +41,8 @@
                     <DataGridTextColumn Binding="{Binding Path=IdPesme}" Header="ID" Width="0.5*"/>
                     <DataGridTextColumn Binding="{Binding Path=Naziv}" Header="Naziv" Width="*"/>
                     <DataGridTextColumn Binding="{Binding Path=Autor}" Header="Autor" Width="*" />
-                    <DataGridTextColumn Binding="{Binding Path=DuzinaMinute}" Header="Duzina Minute" Width="1.5*"/>
-                    <DataGridTextColumn Binding="{Binding Path=DuzinaSekunde}" Header="Duzina Sekunde" Width="1.5*"/>
+                    <DataGridTextColumn Binding="{Binding Path=DuzinaMinute}" Header="Dužina Minute" Width="1.5*"/>
+                    <DataGridTextColumn Binding="{Binding Path=DuzinaSekunde}" Header="Dužina Sekunde" Width="1.5*"/>
                     <DataGridTextColumn Binding="{Binding Path=Format}" Header="Format zapisa" Width="1.5*"/>
                 </DataGrid.Columns>
             </DataGrid>
