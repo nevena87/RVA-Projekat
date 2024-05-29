@@ -59,8 +59,8 @@ namespace Server
             // Pesma
             PesmaMP3 pesmaMP3 = new PesmaMP3()
             {
-                Naziv = "Soba 501",
-                Autor = "Aco Pejovic",
+                Naziv = "neka pesma",
+                Autor = "neki autor",
                 DuzinaMinute = 3,
                 DuzinaSekunde = 12
             };
