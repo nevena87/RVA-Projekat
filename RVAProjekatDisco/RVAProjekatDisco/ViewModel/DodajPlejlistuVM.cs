@@ -92,16 +92,16 @@ namespace RVAProjekatDisco.ViewModel
 
         public void SacuvajPlejlistu()
         {
-            bool prvoPravljenje = false;
+            //bool prvoPravljenje = false;
             if (TrenutnaPlejlista == null)
             {
                 PlejlistaDTO kreiranaPlejlista = new PlejlistaDTO()
                 {
                     Naziv = NazivPlejliste,
-                    Autor = AutorPlejliste,
+                    Autor = AutorPlejliste
                 };
                 TrenutnaPlejlista = KreirajKomunikaciju.Komunikacija.KreirajPlejlistu(kreiranaPlejlista);
-                prvoPravljenje = true;
+                //prvoPravljenje = true;
             }
 
             PlejlistaIzmeniDTO izmeniPlejlistuDTO = new PlejlistaIzmeniDTO()
@@ -110,12 +110,12 @@ namespace RVAProjekatDisco.ViewModel
                 IdPlejliste = TrenutnaPlejlista.IdPlejliste,
                 NoviAutor = AutorPlejliste,
                 NovaListaPesama = ListaPesamaIzTabele.ToList(),
-
+                Verzija = TrenutnaPlejlista.Verzija
             };
 
             bool uspesnoIzmenjen = KreirajKomunikaciju.Komunikacija.IzmeniPlejlistu(izmeniPlejlistuDTO);
 
-            if (!uspesnoIzmenjen && !prvoPravljenje)
+            if (!uspesnoIzmenjen /*&& !prvoPravljenje*/)
             {
                 MessageBoxResult dialogResult = MessageBox.Show("Plejlista je vec izmenjena od strane drugog korisnika. Da li zelite pregaziti tudje izmene", "Pregazi izmene",
                     MessageBoxButton.YesNoCancel, MessageBoxImage.Question);

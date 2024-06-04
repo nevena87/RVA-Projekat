@@ -38,7 +38,6 @@
             <DataGrid x:Name="dataGrid" Margin="0,114,0,-3" ItemsSource="{Binding listaPesama}" AutoGenerateColumns="false" Height="227" 
                   VerticalAlignment="Top" HorizontalAlignment="Left" Width="511" IsReadOnly="True" SelectedItem="{Binding selektovanaPesma}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Path=IdPesme}" Header="ID" Width="0.5*"/>
                     <DataGridTextColumn Binding="{Binding Path=Naziv}" Header="Naziv" Width="*"/>
                     <DataGridTextColumn Binding="{Binding Path=Autor}" Header="Autor" Width="*" />
                     <DataGridTextColumn Binding="{Binding Path=DuzinaMinute}" Header="Dužina Minute" Width="1.5*"/>

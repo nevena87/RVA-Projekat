@@ -73,7 +73,8 @@ namespace Server.Servisi
             {
                 SesijaManager.Instance.AutentifikacijaIzuzetak(sesija);
                 Plejlista izmenjenaPlejlista = DbManager.Instance.VratiPlejlistu(plejlistaIzmeniDTO.IdPlejliste);
-                if (!plejlistaIzmeniDTO.Azurirano)
+                if (!plejlistaIzmeniDTO.Azurirano &&
+                plejlistaIzmeniDTO.Verzija != izmenjenaPlejlista.Verzija)
                 {
                     return false;
                 }
@@ -104,7 +105,7 @@ namespace Server.Servisi
                         izmenjenaPlejlista.ListaPesama.Add(pesma);
                     }
                 }
-
+                ++izmenjenaPlejlista.Verzija;
                 DbManager.Instance.SacuvajPromene();
                 log.Info("Plejlista sa id-em " + izmenjenaPlejlista.IdPlejliste + " je izmenjena");
 
@@ -128,7 +129,8 @@ namespace Server.Servisi
                 Plejlista novaPlejlista = new Plejlista()
                 {
                     Naziv = plejlistaDTO.Naziv,
-                    Autor = plejlistaDTO.Autor
+                    Autor = plejlistaDTO.Autor,
+                    Verzija = 1
                 };
 
                 novaPlejlista = DbManager.Instance.DodajPlejlistu(novaPlejlista);

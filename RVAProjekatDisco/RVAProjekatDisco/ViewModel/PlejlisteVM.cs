@@ -144,7 +144,8 @@ namespace RVAProjekatDisco.ViewModel
             {
                 for (int i = 0; i < novaListaPlejlista.Count; i++)
                 {
-                    if (novaListaPlejlista[i].IdPlejliste != listaPlejlistaIzBaze[i].IdPlejliste)
+                    if (novaListaPlejlista[i].IdPlejliste != listaPlejlistaIzBaze[i].IdPlejliste ||
+                        novaListaPlejlista[i].Verzija != listaPlejlistaIzBaze[i].Verzija)
                     {
                         izmenjeno = true;
                         break;

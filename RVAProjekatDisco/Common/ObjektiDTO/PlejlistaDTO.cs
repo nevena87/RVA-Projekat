@@ -11,13 +11,13 @@ namespace Common.ObjektiDTO
     [DataContract]
     public class PlejlistaDTO
     {
-        [DataMember]
-        public int IdPlejliste { get; set; }
+        //[DataMember]
+        //public int IdPlejliste { get; set; }
         [DataMember]
         public string Naziv { get; set; }
         [DataMember]
         public string Autor { get; set; }
-        [DataMember]
-        public List<Pesma> ListaPesama { get; set; }
+        //[DataMember]
+        //public List<Pesma> ListaPesama { get; set; }
     }
 }

@@ -24,6 +24,8 @@ namespace Common.Model
 		[DataMember]
 		public string Autor { get; set; }
 		[DataMember]
+		public int Verzija { get; set; }
+		[DataMember]
 		public List<Pesma> ListaPesama {  get; set; }
 
 		// Konstruktor(i)
@@ -83,7 +85,8 @@ namespace Common.Model
 			{
 				IdPlejliste = this.IdPlejliste,
 				Autor = this.Autor,
-				Naziv = this.Naziv			
+				Naziv = this.Naziv,
+				Verzija = this.Verzija
 			};
 
 			kopija.ListaPesama = new List<Pesma>();

@@ -18,8 +18,10 @@ namespace Common.ObjektiDTO
         [DataMember]
         public string NoviAutor { get; set; }
         [DataMember]
+        public int Verzija { get; set; }
+        [DataMember]
         public List<Pesma> NovaListaPesama { get; set; }
         [DataMember]
-        public bool Azurirano { get; set; } = false;
+        public bool Azurirano { get; set; }
     }
 }

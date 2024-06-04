@@ -42,7 +42,6 @@
             <DataGrid x:Name="dgridPlejliste" HorizontalAlignment="Left" Margin="0,135,0,0" VerticalAlignment="Top" Height="190" Width="574"
                   ItemsSource="{Binding Plejliste}" AutoGenerateColumns="false" IsReadOnly="True" SelectedItem="{Binding SelektovanaPlejlista}" HorizontalContentAlignment="Center">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Path=IdPlejliste}" Header="ID"/>
                     <DataGridTextColumn Binding="{Binding Path=Naziv}" Header="Naziv Plejliste" Width="*"/>
                     <DataGridTextColumn Binding="{Binding Path=Autor}" Header="Autor Plejliste" Width="*"/>
                 </DataGrid.Columns>
