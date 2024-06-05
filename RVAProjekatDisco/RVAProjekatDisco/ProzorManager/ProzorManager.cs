@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 
 namespace RVAProjekatDisco.WindowManager
-{ 
+{
     public class ProzorManager : IProzorManager
     {
         Stack<Window> stek = new Stack<Window>();

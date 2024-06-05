@@ -73,8 +73,7 @@ namespace Server.Servisi
             {
                 SesijaManager.Instance.AutentifikacijaIzuzetak(sesija);
                 Plejlista izmenjenaPlejlista = DbManager.Instance.VratiPlejlistu(plejlistaIzmeniDTO.IdPlejliste);
-                if (!plejlistaIzmeniDTO.Azurirano &&
-                plejlistaIzmeniDTO.Verzija != izmenjenaPlejlista.Verzija)
+                if (!plejlistaIzmeniDTO.Azurirano && plejlistaIzmeniDTO.Verzija != izmenjenaPlejlista.Verzija)
                 {
                     return false;
                 }

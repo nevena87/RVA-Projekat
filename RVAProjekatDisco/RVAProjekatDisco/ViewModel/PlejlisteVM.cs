@@ -109,10 +109,10 @@ namespace RVAProjekatDisco.ViewModel
                         pretrazenePlejliste = listaPlejlistaIzBaze.Where(plejlista => plejlista.IdPlejliste.ToString().Equals(KriterijumPretrageTekst));
                         break;
                     case KriterijumiPretrage.Naziv:
-                        pretrazenePlejliste = listaPlejlistaIzBaze.Where(plejlista => plejlista.Naziv.ToString().Equals(KriterijumPretrageTekst));
+                        pretrazenePlejliste = listaPlejlistaIzBaze.Where(plejlista => plejlista.Naziv.ToString().Contains(KriterijumPretrageTekst));
                         break;
                     case KriterijumiPretrage.Autor:
-                        pretrazenePlejliste = listaPlejlistaIzBaze.Where(plejlista => plejlista.Autor.ToString().Equals(KriterijumPretrageTekst));
+                        pretrazenePlejliste = listaPlejlistaIzBaze.Where(plejlista => plejlista.Autor.ToString().Contains(KriterijumPretrageTekst));
                         break;
                 }
             }

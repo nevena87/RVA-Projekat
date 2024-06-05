@@ -211,3 +211,5 @@ project.lock.json
 
 # UWP Projects
 AppPackages/
+RVAProjekatDisco/Server/DB/DiscoDB.mdf
+RVAProjekatDisco/Server/DB/DiscoDB_log.ldf
