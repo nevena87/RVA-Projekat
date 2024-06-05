@@ -27,5 +27,10 @@ namespace RVAProjekatDisco.View
             PlejlisteVM viewModel = new PlejlisteVM(prozorManager);
             DataContext = viewModel;
         }
+
+        private void Title_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

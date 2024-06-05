@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RVAProjekatDisco.View"
         mc:Ignorable="d"
-        Title="GREŠKA" Height="140" Width="216" ResizeMode="NoResize" WindowStyle="None" BorderBrush="Black" Background="Red">
+        Title="GREŠKA" Height="140" Width="216" ResizeMode="NoResize" WindowStyle="None" BorderBrush="Black" Background="Red" MouseLeftButtonDown="Title_MouseLeftButtonDown">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Template">

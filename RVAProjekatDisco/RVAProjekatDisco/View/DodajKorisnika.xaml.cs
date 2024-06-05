@@ -3,6 +3,7 @@ using RVAProjekatDisco.WindowManager;
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace RVAProjekatDisco.View
 {
@@ -30,6 +31,11 @@ namespace RVAProjekatDisco.View
             {
                 viewModel.NoviKorisnik.Lozinka = passwordBox.Password;
             }
+        }
+
+        private void Title_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }

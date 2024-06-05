@@ -27,5 +27,10 @@ namespace RVAProjekatDisco.View
             viewModel.Roditelj = this;
             DataContext = viewModel;
         }
+
+        private void Title_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

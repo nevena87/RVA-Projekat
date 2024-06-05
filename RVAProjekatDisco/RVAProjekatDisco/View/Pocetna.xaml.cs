@@ -87,5 +87,10 @@ namespace RVAProjekatDisco.View
         {
             ProzorManager.PrikaziStranu(StanjeProzora.Pesme);
         }
+
+        private void Title_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

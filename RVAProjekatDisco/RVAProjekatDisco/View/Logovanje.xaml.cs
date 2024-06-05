@@ -2,6 +2,7 @@
 using RVAProjekatDisco.WindowManager;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace RVAProjekatDisco.View
 {
@@ -28,6 +29,11 @@ namespace RVAProjekatDisco.View
         private void ExitDugme_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Title_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }

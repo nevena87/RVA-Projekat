@@ -30,5 +30,10 @@ namespace RVAProjekatDisco.View
             IzmeniPodatkeKorisnikaVM viewModel = new IzmeniPodatkeKorisnikaVM(ProzorManager);
             DataContext = viewModel;
         }
+
+        private void Title_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

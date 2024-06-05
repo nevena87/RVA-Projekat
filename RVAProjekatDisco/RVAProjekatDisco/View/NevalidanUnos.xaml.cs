@@ -28,5 +28,10 @@ namespace RVAProjekatDisco.View
         {
             this.Close();
         }
+
+        private void Title_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }
