@@ -1,0 +1,265 @@
+<Project>
+  <Name>RVADisco</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Dijagram</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Pesma</Name>
+        <Access>Public</Access>
+        <Location left="1054" top="170" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public int IdPesme { get; set; }</Member>
+        <Member type="Property">public string Autor { get; set; }</Member>
+        <Member type="Property">public string Naziv { get; set; }</Member>
+        <Member type="Property">public int DuzinaMinute { get; set; }</Member>
+        <Member type="Property">public int DuzinaSekunde { get; set; }</Member>
+        <Member type="Property">public FormatZapisa Format { get; set; }</Member>
+        <Member type="Constructor">public Pesma()</Member>
+        <Member type="Method">public virtual Pesma KlonirajPesmu()</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PesmaMP3</Name>
+        <Access>Public</Access>
+        <Location left="765" top="467" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public PesmaMP3()</Member>
+        <Member type="Method">public override Pesma KlonirajPesmu()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PesmaWAV</Name>
+        <Access>Public</Access>
+        <Location left="957" top="467" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public PesmaWAV()</Member>
+        <Member type="Method">public override Pesma KlonirajPesmu()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PesmaFLAC</Name>
+        <Access>Public</Access>
+        <Location left="1151" top="467" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public PesmaFLAC()</Member>
+        <Member type="Method">public override Pesma KlonirajPesmu()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PesmaOGG</Name>
+        <Access>Public</Access>
+        <Location left="1339" top="467" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Constructor">public PesmaOGG()</Member>
+        <Member type="Method">public override Pesma KlonirajPesmu()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Plejlista</Name>
+        <Access>Public</Access>
+        <Location left="518" top="170" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public int IdPlejliste { get; set; }</Member>
+        <Member type="Property">public string Naziv { get; set; }</Member>
+        <Member type="Property">public string Autor { get; set; }</Member>
+        <Member type="Property">public List&lt;Pesma&gt; ListaPesama { get; set; }</Member>
+        <Member type="Constructor">public Plejlista()</Member>
+        <Member type="Constructor">public Plejlista(PlejlistaDTO pl)</Member>
+        <Member type="Method">public Pesma DodajPesmu(Pesma pesma)</Member>
+        <Member type="Method">public Plejlista KlonirajPlejlistu()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Factory</Name>
+        <Access>Public</Access>
+        <Location left="518" top="467" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public abstract Pesma NapraviPesmu(FormatZapisa fz)</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PesmaFactory</Name>
+        <Access>Public</Access>
+        <Location left="253" top="468" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public override Pesma NapraviPesmu(FormatZapisa fz)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Enum">
+        <Name>FormatZapisa</Name>
+        <Access>Public</Access>
+        <Location left="253" top="170" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Value>MP3</Value>
+        <Value>WAV</Value>
+        <Value>FLAC</Value>
+        <Value>OGG</Value>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IUndoRedo</Name>
+        <Access>Public</Access>
+        <Location left="724" top="777" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void Vrati()</Member>
+        <Member type="Method">void Izvrsi()</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>CommandExecutor</Name>
+        <Access>Public</Access>
+        <Location left="400" top="777" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Stack&lt;IUndoRedo&gt; undoStack</Member>
+        <Member type="Field">Stack&lt;IUndoRedo&gt; redoStack</Member>
+        <Member type="Method">public void DodajIIzvrsi(IUndoRedo novaKomanda)</Member>
+        <Member type="Method">public void Undo()</Member>
+        <Member type="Method">public bool ValidacijaUndo()</Member>
+        <Member type="Method">public void Redo()</Member>
+        <Member type="Method">public bool ValidacijaRedo()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>KomandaDodajPesmu</Name>
+        <Access>Public</Access>
+        <Location left="602" top="1063" />
+        <Size width="162" height="247" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">DodajPlejlistuVM dodajPlejlistuVM</Member>
+        <Member type="Field">Pesma novaPesma</Member>
+        <Member type="Field">string Naziv</Member>
+        <Member type="Field">string Autor</Member>
+        <Member type="Field">int DuzinaMinute</Member>
+        <Member type="Field">int DuzinaSekunde</Member>
+        <Member type="Field">FormatZapisa FormatZapisa</Member>
+        <Member type="Constructor">public KomandaDodajPesmu(DodajPlejlistuKomandaVM viewModel, string naziv, string autor, int duzinaMinute, int duzinaSekunde, FormatZapisa formatZapisa)</Member>
+        <Member type="Method">public void Vrati()</Member>
+        <Member type="Method">public void Izvrsi()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>KomandaObrisiPesmu</Name>
+        <Access>Public</Access>
+        <Location left="850" top="1063" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">DodajPlejlistuVM dodajPlejlistuVM</Member>
+        <Member type="Field">Pesma pesmaZaBrisanje</Member>
+        <Member type="Field">int idPesme</Member>
+        <Member type="Constructor">public KomandaObrisiPesmu(DodajPlejlistuVM viewModel, Pesma pesmaZaBrisanje, int idPesme)</Member>
+        <Member type="Method">public void Vrati()</Member>
+        <Member type="Method">public void Izvrsi()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>ICommand</Name>
+        <Access>Public</Access>
+        <Location left="1116" top="777" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Event">event EventHandler CanExecuteChanged</Member>
+        <Member type="Method">bool CanExecute(object parameter)</Member>
+        <Member type="Method">void Execute(object parameter)</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>KomandaOtkazi</Name>
+        <Access>Public</Access>
+        <Location left="1378" top="777" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public ProzorManagingVM ViewModel { get; set; }</Member>
+        <Member type="Constructor">public KomandaOtkazi(ProzorManagingVM viewModel)</Member>
+        <Member type="Event">public event EventHandler CanExecuteChanged</Member>
+        <Member type="Method">public bool CanExecute(object parameter)</Member>
+        <Member type="Method">public void Execute(object parameter)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>RelayCommand</Name>
+        <Access>Public</Access>
+        <Location left="1116" top="1063" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">readonly Func&lt;Boolean&gt; _canExecute</Member>
+        <Member type="Field">readonly Action _execute</Member>
+        <Member type="Constructor">public RelayCommand(Action execute, Func&lt;Boolean&gt; canExecute)</Member>
+        <Member type="Event">public event EventHandler CanExecuteChanged</Member>
+        <Member type="Method">public bool CanExecute(object parameter)</Member>
+        <Member type="Method">public void Execute(object parameter)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Generalization" first="1" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="2" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="3" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="4" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="5" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+        <EndRole>pesme</EndRole>
+        <StartMultiplicity>0..1</StartMultiplicity>
+        <EndMultiplicity>0..*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="5" second="6">
+        <Label>koristi</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Generalization" first="7" second="6">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="10" second="9">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Realization" first="11" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="12" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="14" second="13">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="15" second="13">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
