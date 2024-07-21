@@ -1,1 +1,2 @@
-# Projekat iz predmeta Razvoj višeslojnih aplikacija
+# RVA Projekat 
+Projekat iz predmeta Razvoj višeslojnih aplikacija
